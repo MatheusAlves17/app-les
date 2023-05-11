@@ -1,16 +1,17 @@
 <nav>
-  <a class="brand">
+  <a class="brand" routerLink="home">
     <img src="../../../assets/images/Header/Logotipo.svg" />
   </a>
   <ul class="links">
     <li>
-      <a>Carrinho</a>
+      <a routerLink="cart">Carrinho</a>
     </li>
     <li>
-      <a href="">Minhas compras</a>
+      <a routerLink="my-purchase">Minhas compras</a>
     </li>
     <li>
-      <a href="">Entrar</a>
+      <a routerLink="login">Entrar</a>
     </li>
   </ul>
 </nav>
+<router-outlet></router-outlet>

@@ -13,3 +13,51 @@ a{
 a:hover{
   color: #1ED760;
 }
+
+form{
+  width: 450px;
+  margin: 1.5rem auto ;
+}
+
+.form-group{
+  display: flex;
+  flex-direction: column;
+
+  margin-bottom: 1rem;
+}
+
+.form-group label{
+  font-weight: 500;
+  color: #1E1E1E;
+  font-size: 0.85rem;
+
+  margin-bottom: 0.2rem;
+}
+
+.form-group input{
+  padding: 0.8rem;
+  outline: none;
+
+  border-radius: 0.4rem;
+  border: 1px solid #1E1E1E;
+  background-color: transparent;
+}
+
+input[type=submit]{
+  border: none;
+  cursor: pointer;
+  padding: 0.8rem 1rem;
+  border-radius: 0.4rem;
+
+  font-weight: 600;
+  font-size: 1rem;
+
+  color: #F8F8F8;
+  background-color: #1ED760;
+  transition: .4s;
+}
+
+input[type=submit]:hover{
+  background-color: #4be07f;
+
+}
