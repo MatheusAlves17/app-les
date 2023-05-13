@@ -1,0 +1,59 @@
+main{
+  width: 100vw;
+  height: auto;
+
+  /* background: #F8F8F8; */
+}
+section{
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  margin-top: 2rem;
+}
+
+.image-product{
+  width: 18.75rem;
+  height: 28.395rem;
+
+  border-radius: 0.5rem;
+}
+
+.card-body{
+  width: 20rem;
+  margin-top: 1rem;
+}
+
+.row{
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+
+}
+.title{
+  font-size: 0.875rem;
+  font-weight: 500;
+
+  margin-top: 0;
+
+  color: #1E1E1E;
+}
+
+.price{
+  font-size: 0.875rem;
+  font-weight: 600;
+
+  color: #1E1E1E;
+}
+.legend{
+  font-size: 0.875rem;
+  font-weight: 400;
+
+  text-align: left;
+  margin-top: 0.8rem;
+  margin-bottom: 0.4rem;
+
+  color: #1E1E1E;
+}

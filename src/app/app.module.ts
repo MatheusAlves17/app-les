@@ -15,6 +15,7 @@ import { SignupFormComponent } from './components/signup-form/signup-form.compon
 import { SignupComponent } from './pages/signup/signup.component';
 import { MessagesComponent } from './components/messages/messages.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { ProductDetailsComponent } from './pages/product-details/product-details.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     LoginComponent,
     SignupFormComponent,
     SignupComponent,
-    MessagesComponent
+    MessagesComponent,
+    ProductDetailsComponent
   ],
   imports: [
     BrowserModule,

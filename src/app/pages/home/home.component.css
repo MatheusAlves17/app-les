@@ -25,7 +25,13 @@ section{
   border-radius: 0.75rem;
   box-shadow: 4px 4px 12px rgba(150, 149, 222, 0.2);
 
+  cursor: pointer;
+
   background: #FFFFFF;
+  transition: .4s;
+}
+.card-container:hover{
+  box-shadow: 8px 8px 16px rgba(150, 149, 222, 0.2);
 }
 
 .card-image{
@@ -41,7 +47,6 @@ section{
 .card-body{
   padding: 0 1rem;
   background: #FFFFFF;
-
 }
 
 .title{

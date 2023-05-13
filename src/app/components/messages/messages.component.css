@@ -12,13 +12,15 @@
   border: 2px solid #1ED760;
 
   color: #fff;
-  background-color: #1ed760;}
+  background-color: #1ed760;
+}
 
 .message-header{
   display: flex;
   align-items: center;
   justify-content: space-between;
 
+  background-color: #1ed760;
 }
 
 .message-header button{
@@ -40,6 +42,8 @@
 
 p{
   text-align: center;
-  color: #fff;
   font-weight: 600;
+
+  background-color: #1ed760;
+  color: #fff;
 }
