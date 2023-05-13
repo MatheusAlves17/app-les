@@ -6,9 +6,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { SignupComponent } from './pages/signup/signup.component';
 
 const routes: Routes = [
-  {path: '', component: HeaderComponent, children: [
-    {path: 'home', component: HomeComponent},
-  ]},
+  {path: 'home', component: HomeComponent},
   {path: 'login', component: LoginComponent},
   {path: 'signup', component: SignupComponent},
 ];

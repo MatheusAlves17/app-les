@@ -3,6 +3,7 @@
   padding: 0;
   box-sizing: border-box;
   font-family: 'Roboto', sans-serif;
+  background-color: #F8F8F8;
 }
 
 a{
@@ -88,4 +89,23 @@ p.error-message{
 
 p{
   text-align: center;
+}
+
+.btn-transparent{
+  padding: 0.8rem 1rem;
+
+  border: none;
+  border-radius: .75rem;
+
+  font-weight: 600;
+  color: #1E1E1E;
+
+  background: #FFF;
+
+  cursor: pointer;
+  transition: .4s;
+}
+
+.btn-transparent:hover{
+  box-shadow: 4px 4px 12px rgba(150, 149, 222, 0.2);
 }

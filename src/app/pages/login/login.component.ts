@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Route, Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -10,6 +11,10 @@ export class LoginComponent {
 
   loginForm!: FormGroup;
   message: string = '';
+
+  constructor(
+    private router: Router
+  ){}
 
   ngOnInit():void{
     this.loginForm =  new FormGroup({
@@ -31,6 +36,8 @@ export class LoginComponent {
     const {value, valid} = this.loginForm;
     if(valid){
       this.message = 'Redirecionando';
+      // autenticação
+      this.router.navigate(['/home'])
     }
   }
 
