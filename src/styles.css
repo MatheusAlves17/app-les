@@ -38,7 +38,9 @@ form{
   margin-bottom: 0.2rem;
 }
 
-.form-group input{
+.form-group
+input,
+select{
   padding: 0.8rem;
   outline: none;
 
@@ -103,7 +105,7 @@ p{
   font-weight: 600;
   color: #1E1E1E;
 
-  background: #FFF;
+  background: transparent;
 
   cursor: pointer;
   transition: .4s;
