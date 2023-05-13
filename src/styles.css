@@ -3,6 +3,9 @@
   padding: 0;
   box-sizing: border-box;
   font-family: 'Roboto', sans-serif;
+}
+
+body{
   background-color: #F8F8F8;
 }
 
@@ -122,6 +125,10 @@ p{
 
   cursor: pointer;
   transition: .4s;
+
+  display: block;
+  margin: 0 auto;
+
 }
 
 .btn-green:hover{

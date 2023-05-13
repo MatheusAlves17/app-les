@@ -1,0 +1,102 @@
+
+main{
+  width: 100vw;
+  height: auto;
+
+}
+section{
+  margin-top: 2rem;
+  padding: 0 1rem;
+
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.row{
+  display: flex;
+  align-items: center;
+  padding: 1rem 1rem 0 1rem;
+}
+
+h2{
+  margin-right: .75rem;
+}
+
+p{
+  color: #1E1E1E;
+}
+
+.card{
+  width: 50rem;
+  height: 7.5rem;
+
+  padding: .8rem 1rem;
+
+  display: flex;
+  justify-content: space-between;
+
+  border-radius: .25rem;
+  background-color: #FFFFFF;
+}
+
+.image-product{
+  width: 6.25rem;
+  height: 6.25rem;
+
+  border-radius: 100%;
+  object-fit: contain;
+  box-shadow: 4px 4px 12px rgba(150, 149, 222, 0.2);
+}
+
+.title{
+  font-size: 1rem;
+  font-weight: 500;
+  color: #1E1E1E;
+}
+
+.legend{
+  font-size: .85rem;
+  font-weight: 500;
+  color: #1E1E1E;
+}
+
+.legend:last-child{
+  margin-left: 1rem;
+}
+
+button.btn-cart{
+  width: 2.5rem;
+  height: 2.5rem;
+
+  border: none;
+
+  color: #FFFFFF;
+  font-weight: 500;
+  font-size: 1rem;
+  background-color: #1ED760;
+
+  cursor: pointer;
+  transition: .4s;
+}
+
+button.btn-cart:last-child{
+  border-radius: 0 0.25rem 0.25rem 0;
+}
+
+button.btn-cart:first-child{
+  border-radius: 0.25rem 0 0 0.25rem;
+}
+
+button.btn-cart:hover{
+  background-color: #4be07f;
+
+}
+
+p.quantity{
+  padding: .60rem 1rem;
+
+  display: inline;
+  border: 1px solid #1ED760;
+}

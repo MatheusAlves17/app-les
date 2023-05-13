@@ -17,4 +17,6 @@ nav{
 li{
   list-style: none;
   margin-left: 2rem;
+  color: #1e1e1e;
+  font-weight: 500;
 }

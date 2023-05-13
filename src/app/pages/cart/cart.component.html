@@ -1,0 +1,30 @@
+<app-header></app-header>
+<main>
+  <div class="row">
+    <h2>Carrinho</h2>
+    <p *ngIf="quantity === 0 ">Nenhum item adicionado</p>
+    <p *ngIf="quantity > 1">{{quantity}} itens adicionados</p>
+    <p *ngIf="quantity === 1">{{quantity}} item adicionado</p>
+  </div>
+  <section>
+    <div class="card">
+      <img src="https://img.ltwebstatic.com/images3_pi/2019/12/04/1575456506ff76ccaa4ac5ea12c3396865f3f74f63_thumbnail_600x.webp" alt="" class="image-product">
+      <div>
+        <p class="title">Relógio Quartzo</p>
+        <div class="row">
+          <div class="legend">R$ 24.90</div>
+          <p class="legend" *ngIf="quantity === 0 ">0</p>
+          <p class="legend" *ngIf="quantity > 1">{{quantity}} itens adicionados</p>
+          <p class="legend" *ngIf="quantity === 1">{{quantity}} item adicionado</p>
+          <!-- <div >{{quantity}} unidade</div> -->
+        </div>
+      </div>
+      <div>
+        <button class="btn-cart" (click)="sub()">-</button>
+        <p class="quantity">{{quantity}}</p>
+        <button class="btn-cart" (click)="sum()">+</button>
+      </div>
+    </div>
+  </section>
+  <button class="btn-green" style="margin-right: 1rem; margin-top: .75rem;">Comprar</button>
+</main>
