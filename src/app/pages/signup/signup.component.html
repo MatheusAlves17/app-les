@@ -1,4 +1,6 @@
+<app-messages [message]="message"></app-messages>
 <h1 class="title">
   Cadastro
 </h1>
-<app-signup-form [btnText]="btnText"></app-signup-form>
+<app-signup-form [btnText]="btnText" (onSubmit)="createHandler($event)"></app-signup-form>
+<p>Se enganou? <a routerLink="/login">Clique para fazer login</a> </p>

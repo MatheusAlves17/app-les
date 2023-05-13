@@ -1,0 +1,45 @@
+.message{
+  width: 35%;
+
+  top: 3px;
+  right: 3px;
+  position: fixed;
+
+  padding: 0.8rem;
+  /* margin-left: 50%; */
+
+  border-radius: 0.4rem;
+  border: 2px solid #1ED760;
+
+  color: #fff;
+  background-color: #1ed760;}
+
+.message-header{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+}
+
+.message-header button{
+  width: 2rem;
+  height: 2rem;
+
+  cursor: pointer;
+
+  border: none;
+  border-radius: .4rem;
+
+  transition: .4s;
+  background-color: #FFFFFF;
+}
+
+.message-header button:hover{
+  background-color: #F8F8F8;
+}
+
+p{
+  text-align: center;
+  color: #fff;
+  font-weight: 600;
+}
