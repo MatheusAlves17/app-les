@@ -23,6 +23,7 @@ import { MyPurchaseComponent } from './pages/my-purchase/my-purchase.component';
 import { DevolutionComponent } from './pages/devolution/devolution.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { EditProfileComponent } from './pages/edit-profile/edit-profile.component';
+import { AddressComponent } from './pages/address/address.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { EditProfileComponent } from './pages/edit-profile/edit-profile.componen
     MyPurchaseComponent,
     DevolutionComponent,
     ProfileComponent,
-    EditProfileComponent
+    EditProfileComponent,
+    AddressComponent
   ],
   imports: [
     BrowserModule,
