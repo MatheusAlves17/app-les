@@ -1,0 +1,66 @@
+
+main{
+  width: 100vw;
+  height: auto;
+
+}
+section{
+  margin-top: 2rem;
+  padding: 0 1rem;
+
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.row{
+  display: flex;
+  align-items: center;
+  padding: 1rem 1rem 0 1rem;
+}
+
+h2{
+  margin-right: .75rem;
+}
+
+p{
+  color: #1E1E1E;
+}
+
+.card{
+  width: 50rem;
+  height: 7.5rem;
+
+  margin-top: 2rem;
+  padding: .8rem 1rem;
+
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  border-radius: .25rem;
+  background-color: #FFFFFF;
+}
+
+.image-product{
+  width: 6.25rem;
+  height: 6.25rem;
+
+  border-radius: 100%;
+  object-fit: contain;
+  box-shadow: 4px 4px 12px rgba(150, 149, 222, 0.2);
+}
+
+.status{
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: #D7981E;
+}
+
+.legend{
+  font-size: .85rem;
+  font-weight: 500;
+  color: #1E1E1E;
+}

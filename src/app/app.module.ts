@@ -19,6 +19,7 @@ import { ProductDetailsComponent } from './pages/product-details/product-details
 import { CartComponent } from './pages/cart/cart.component';
 import { PurchaseComponent } from './pages/purchase/purchase.component';
 import { PurchaseResumeComponent } from './pages/purchase-resume/purchase-resume.component';
+import { MyPurchaseComponent } from './pages/my-purchase/my-purchase.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { PurchaseResumeComponent } from './pages/purchase-resume/purchase-resume
     ProductDetailsComponent,
     CartComponent,
     PurchaseComponent,
-    PurchaseResumeComponent
+    PurchaseResumeComponent,
+    MyPurchaseComponent
   ],
   imports: [
     BrowserModule,

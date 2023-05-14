@@ -8,6 +8,7 @@ import { ProductDetailsComponent } from './pages/product-details/product-details
 import { CartComponent } from './pages/cart/cart.component';
 import { PurchaseComponent } from './pages/purchase/purchase.component';
 import { PurchaseResumeComponent } from './pages/purchase-resume/purchase-resume.component';
+import { MyPurchaseComponent } from './pages/my-purchase/my-purchase.component';
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
@@ -17,6 +18,7 @@ const routes: Routes = [
   {path: 'carrinho', component: CartComponent},
   {path: 'compra', component: PurchaseComponent},
   {path: 'resumo', component: PurchaseResumeComponent},
+  {path: 'minhas-compras', component: MyPurchaseComponent},
 ];
 
 @NgModule({
