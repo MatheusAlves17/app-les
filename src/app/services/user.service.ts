@@ -24,4 +24,15 @@ export class UserService {
   createUser(formData: FormData): Observable<FormData>{
     return this.http.post<FormData>(this.apiUrl, formData);
   }
+
+  getUser(id: string){
+    return this.http.get(`${this.apiUrl}/${id}`);
+  }
+
+  updateUser(id: any, formData: FormData): Observable<FormData>{
+    const url = `${this.apiUrl}/${id}`
+    return this.http.put<FormData>(url, formData);
+  }
+
+
 }

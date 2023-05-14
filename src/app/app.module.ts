@@ -22,6 +22,7 @@ import { PurchaseResumeComponent } from './pages/purchase-resume/purchase-resume
 import { MyPurchaseComponent } from './pages/my-purchase/my-purchase.component';
 import { DevolutionComponent } from './pages/devolution/devolution.component';
 import { ProfileComponent } from './pages/profile/profile.component';
+import { EditProfileComponent } from './pages/edit-profile/edit-profile.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { ProfileComponent } from './pages/profile/profile.component';
     PurchaseResumeComponent,
     MyPurchaseComponent,
     DevolutionComponent,
-    ProfileComponent
+    ProfileComponent,
+    EditProfileComponent
   ],
   imports: [
     BrowserModule,

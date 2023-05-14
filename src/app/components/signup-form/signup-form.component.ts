@@ -9,21 +9,23 @@ import { ISignup } from 'src/app/interfaces/Singup';
 })
 export class SignupFormComponent {
   @Input() btnText!: string;
+  @Input() data: ISignup | null = null;
   @Output() onSubmit = new EventEmitter<ISignup>()
 
   signupForm!: FormGroup;
+
 
   constructor(){}
 
   ngOnInit():void{
     this.signupForm =  new FormGroup({
-      id: new FormControl('', [Validators.required]),
-      name: new FormControl('', [Validators.required, Validators.min(2)]),
-      CPF: new FormControl('', [Validators.required, Validators.minLength(11)]),
-      phone: new FormControl('', [Validators.required, Validators.minLength(11)]),
-      email: new FormControl('', [Validators.required, Validators.email]),
-      password: new FormControl('', [Validators.required, Validators.min(8)]),
-      image: new FormControl(''),
+      id: new FormControl(this.data ? this.data.id : '', [Validators.required]),
+      name: new FormControl(this.data ? this.data.name : '', [Validators.required, Validators.min(2)]),
+      CPF: new FormControl(this.data ? this.data.CPF : '', [Validators.required, Validators.minLength(11)]),
+      phone: new FormControl(this.data ? this.data.phone : '', [Validators.required, Validators.minLength(11)]),
+      email: new FormControl(this.data ? this.data.email : '', [Validators.required, Validators.email]),
+      password: new FormControl(this.data ? this.data.password : '', [Validators.required, Validators.min(8)]),
+      image: new FormControl(this.data ? this.data.image : ''),
     })
   }
 
