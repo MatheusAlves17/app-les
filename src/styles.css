@@ -40,7 +40,8 @@ form{
 
 .form-group
 input,
-select{
+select,
+textarea{
   padding: 0.8rem;
   outline: none;
 

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-my-purchase',
@@ -6,5 +7,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./my-purchase.component.css']
 })
 export class MyPurchaseComponent {
+
+  constructor(
+    private router: Router
+  ){}
+
+  goTo(id: string){
+    this.router.navigate([`/devolucao/${id}`])
+  }
 
 }
