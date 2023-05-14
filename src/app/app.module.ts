@@ -18,6 +18,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ProductDetailsComponent } from './pages/product-details/product-details.component';
 import { CartComponent } from './pages/cart/cart.component';
 import { PurchaseComponent } from './pages/purchase/purchase.component';
+import { PurchaseResumeComponent } from './pages/purchase-resume/purchase-resume.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { PurchaseComponent } from './pages/purchase/purchase.component';
     MessagesComponent,
     ProductDetailsComponent,
     CartComponent,
-    PurchaseComponent
+    PurchaseComponent,
+    PurchaseResumeComponent
   ],
   imports: [
     BrowserModule,

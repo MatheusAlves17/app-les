@@ -1,7 +1,7 @@
 <app-header></app-header>
 <main>
   <section>
-    <form action="">
+    <form>
       <div class="form-group">
         <div class="row">
           <label for="address">Enviar para...</label>
@@ -55,7 +55,7 @@
           <option value="id">Cupom compra - 15%</option>
         </select>
       </div>
-      <input type="submit" value="Continuar">
+      <input type="submit" value="Continuar"(click)="submit()">
     </form>
   </section>
 </main>
