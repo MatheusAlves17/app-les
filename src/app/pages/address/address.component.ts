@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-address',
@@ -6,5 +7,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./address.component.css']
 })
 export class AddressComponent {
+
+  constructor(
+    private router: Router
+  ){}
+
+  goTo(id: string){
+    this.router.navigate([`/editar-endereco/${id}`])
+  }
 
 }

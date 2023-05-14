@@ -23,29 +23,24 @@ export class EditProfileComponent {
   ) { }
 
   ngOnInit(): void {
-    const urlId = this.route.snapshot.paramMap.get('id')
-    this.id = urlId ? urlId : ''
-    this.userService.getUser(this.id).subscribe((data: any) => {
-      this.data = data;
-    })
+    const userStorage = localStorage.getItem('user');
+    const user = userStorage ? JSON.parse(userStorage) : ''
+    this.data = user;
+    console.log(`user: ${userStorage}`);
+
   }
 
   async submit(data: ISignup){
+    console.log(`data: ${data}`);
+    const id = this.route.snapshot.paramMap.get('id')
 
-    const id = this.data.id;
+    // if(data.image){
+    //   formData.append('image', data.image)
+    // }
 
-    const formData = new FormData();
-
-    formData.append('name', data.name)
-    formData.append('phone', data.phone)
-    formData.append('password', data.password)
-
-    if(data.image){
-      formData.append('image', data.image)
-    }
-
-    await this.userService.updateUser(id, formData).subscribe((data: any) => {
+    await this.userService.updateUser(id, data).subscribe((data: any) => {
       console.log(`atualizado com sucesso! ${data}`);
+      localStorage.setItem('user', JSON.stringify(data))
       this.message = "Dados atualizados com sucesso!"
       this.router.navigate([`/perfil/${id}`])
 

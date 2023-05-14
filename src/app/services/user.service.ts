@@ -8,7 +8,7 @@ import { ISignup } from '../interfaces/Singup';
   providedIn: 'root'
 })
 export class UserService {
-  apiUrl = 'http://localhost:3333/user';
+  apiUrl = 'http://46.101.179.199/user';
 
   httpOptions = {
     headers: new HttpHeaders({
@@ -21,17 +21,17 @@ export class UserService {
     private http: HttpClient
   ) {}
 
-  createUser(formData: FormData): Observable<FormData>{
-    return this.http.post<FormData>(this.apiUrl, formData);
+  createUser(signup: ISignup): Observable<FormData>{
+    return this.http.post<FormData>(this.apiUrl, signup);
   }
 
   getUser(id: string){
     return this.http.get(`${this.apiUrl}/${id}`);
   }
 
-  updateUser(id: any, formData: FormData): Observable<FormData>{
+  updateUser(id: any, data: any): Observable<any>{
     const url = `${this.apiUrl}/${id}`
-    return this.http.put<FormData>(url, formData);
+    return this.http.put<any>(url, data);
   }
 
 

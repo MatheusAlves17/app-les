@@ -1,9 +1,9 @@
 export interface ISignup{
-  id?: number;
+  // id?: number;
   name: string;
   CPF: string;
   phone: string;
   email: string;
   password: string;
-  image?: string;
+  // image?: string;
 }

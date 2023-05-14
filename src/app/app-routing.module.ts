@@ -13,6 +13,7 @@ import { DevolutionComponent } from './pages/devolution/devolution.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { EditProfileComponent } from './pages/edit-profile/edit-profile.component';
 import { AddressComponent } from './pages/address/address.component';
+import { EditAddressComponent } from './pages/edit-address/edit-address.component';
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
@@ -27,6 +28,7 @@ const routes: Routes = [
   {path: 'perfil/:id', component: ProfileComponent},
   {path: 'editar-perfil/:id', component: EditProfileComponent},
   {path: 'enderecos/:id', component: AddressComponent},
+  {path: 'editar-endereco/:id', component: EditAddressComponent},
 ];
 
 @NgModule({

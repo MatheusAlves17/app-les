@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 import { ISignup } from 'src/app/interfaces/Singup';
 
 @Component({
@@ -13,19 +14,24 @@ export class SignupFormComponent {
   @Output() onSubmit = new EventEmitter<ISignup>()
 
   signupForm!: FormGroup;
+  id: string | null = '';
 
-
-  constructor(){}
+  constructor(
+    private route: ActivatedRoute
+  ){}
 
   ngOnInit():void{
+
+    this.id = this.route.snapshot.paramMap.get('id') ? this.route.snapshot.paramMap.get('id') : '';
+
     this.signupForm =  new FormGroup({
-      id: new FormControl(this.data ? this.data.id : '', [Validators.required]),
+      // id: new FormControl(this.data ? this.data.id : '', [Validators.required]),
       name: new FormControl(this.data ? this.data.name : '', [Validators.required, Validators.min(2)]),
       CPF: new FormControl(this.data ? this.data.CPF : '', [Validators.required, Validators.minLength(11)]),
       phone: new FormControl(this.data ? this.data.phone : '', [Validators.required, Validators.minLength(11)]),
       email: new FormControl(this.data ? this.data.email : '', [Validators.required, Validators.email]),
       password: new FormControl(this.data ? this.data.password : '', [Validators.required, Validators.min(8)]),
-      image: new FormControl(this.data ? this.data.image : ''),
+      // image: new FormControl(this.data ? this.data.image : ''),
     })
   }
 
@@ -58,9 +64,8 @@ export class SignupFormComponent {
 
   submit(){
     const {value, valid} = this.signupForm;
-      localStorage.setItem('0', JSON.stringify(value));
       this.onSubmit.emit(value)
-      console.log(`data: ${value}`);
+      // console.log(`data: ${value}`);
   }
 
 }

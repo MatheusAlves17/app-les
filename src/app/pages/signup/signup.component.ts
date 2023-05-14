@@ -15,23 +15,27 @@ export class SignupComponent {
   constructor(private userService: UserService, private router: Router){}
 
   async createHandler(signup: ISignup){
-    const formData = new FormData();
+    // const formData = new FormData();
 
-    formData.append('name', signup.name);
-    formData.append('CPF', signup.CPF);
-    formData.append('phone', signup.phone);
-    formData.append('email', signup.email);
-    formData.append('password', signup.password);
+    // formData.append('name', signup.name);
+    // formData.append('CPF', signup.CPF);
+    // formData.append('phone', signup.phone);
+    // formData.append('email', signup.email);
+    // formData.append('password', signup.password);
 
-    if(signup.image){
-      formData.append('image', signup.image)
-    }
+    // if(signup.image){
+    //   formData.append('image', signup.image)
+    // }
 
-    // await this.userService.createUser(formData).subscribe((data: any) => {
-      // console.log(`sucesso! ${data}`);
-      // this.message = data;
-      this.router.navigate([`/perfil/12`])
-    // })
+    await this.userService.createUser(signup).subscribe((data: any) => {
+      console.log(`Sucesso! ${data}`);
+      localStorage.setItem('user', JSON.stringify(data))
+      this.message = 'Cadastro feito com sucesso!';
+      this.router.navigate([`/perfil/${data.id}`])
+    },((err: any) => {
+      console.log(`falhou: ${err}`);
+      this.message = err.error.message
+    }))
 
   }
 

@@ -1,5 +1,5 @@
 <form (ngSubmit)="submit()" [formGroup]="signupForm" #formDir="ngForm">
-  <input type="hidden" formControlName="id">
+  <!-- <input type="hidden" formControlName="id"> -->
   <div class="form-group">
     <label for="name">Nome completo</label>
     <input type="text" id="name" placeholder="Nome completo" required formControlName="name"/>
@@ -10,7 +10,7 @@
       *ngIf="name.errors?.['min']">Nome inválido</p>
     </div>
   </div>
-  <div class="form-group">
+  <div class="form-group" *ngIf="!id">
     <label for="CPF">CPF</label>
     <input type="text" id="CPF" placeholder="CPF" required formControlName="CPF" maxlength="11"/>
     <div class="error" *ngIf="CPF?.invalid && formDir.submitted">
@@ -30,7 +30,7 @@
       *ngIf="phone.errors?.['min']">Telefone inválido</p>
     </div>
   </div>
-  <div class="form-group">
+  <div class="form-group" *ngIf="!id">
     <label for="email">E-mail</label>
     <input type="text" id="email" placeholder="E-mail" required formControlName="email"/>
     <div class="error" *ngIf="email?.invalid && formDir.submitted">
@@ -40,7 +40,7 @@
       *ngIf="email.errors?.['email']">E-mail inválido</p>
     </div>
   </div>
-  <div class="form-group">
+  <div class="form-group" >
     <label for="password">Senha</label>
     <input type="password" id="password" placeholder="Senha" required formControlName="password"/>
     <div class="error" *ngIf="password?.invalid && formDir.submitted">

@@ -24,6 +24,8 @@ import { DevolutionComponent } from './pages/devolution/devolution.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { EditProfileComponent } from './pages/edit-profile/edit-profile.component';
 import { AddressComponent } from './pages/address/address.component';
+import { EditAddressComponent } from './pages/edit-address/edit-address.component';
+import { AddressFormComponent } from './components/address-form/address-form.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +44,9 @@ import { AddressComponent } from './pages/address/address.component';
     DevolutionComponent,
     ProfileComponent,
     EditProfileComponent,
-    AddressComponent
+    AddressComponent,
+    EditAddressComponent,
+    AddressFormComponent
   ],
   imports: [
     BrowserModule,
