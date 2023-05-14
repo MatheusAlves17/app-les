@@ -10,6 +10,7 @@ import { PurchaseComponent } from './pages/purchase/purchase.component';
 import { PurchaseResumeComponent } from './pages/purchase-resume/purchase-resume.component';
 import { MyPurchaseComponent } from './pages/my-purchase/my-purchase.component';
 import { DevolutionComponent } from './pages/devolution/devolution.component';
+import { ProfileComponent } from './pages/profile/profile.component';
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
@@ -21,6 +22,7 @@ const routes: Routes = [
   {path: 'resumo', component: PurchaseResumeComponent},
   {path: 'minhas-compras', component: MyPurchaseComponent},
   {path: 'devolucao/:id', component: DevolutionComponent},
+  {path: 'perfil/:id', component: ProfileComponent},
 ];
 
 @NgModule({

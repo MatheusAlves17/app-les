@@ -21,6 +21,7 @@ import { PurchaseComponent } from './pages/purchase/purchase.component';
 import { PurchaseResumeComponent } from './pages/purchase-resume/purchase-resume.component';
 import { MyPurchaseComponent } from './pages/my-purchase/my-purchase.component';
 import { DevolutionComponent } from './pages/devolution/devolution.component';
+import { ProfileComponent } from './pages/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { DevolutionComponent } from './pages/devolution/devolution.component';
     PurchaseComponent,
     PurchaseResumeComponent,
     MyPurchaseComponent,
-    DevolutionComponent
+    DevolutionComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,

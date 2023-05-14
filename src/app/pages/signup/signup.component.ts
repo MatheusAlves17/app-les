@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { ISignup } from 'src/app/interfaces/Singup';
 import { UserService } from 'src/app/services/user.service';
 
@@ -11,7 +12,7 @@ export class SignupComponent {
   btnText: string = "Registrar";
   message: string = '';
 
-  constructor(private userService: UserService){}
+  constructor(private userService: UserService, private router: Router){}
 
   async createHandler(signup: ISignup){
     const formData = new FormData();
@@ -26,11 +27,11 @@ export class SignupComponent {
       formData.append('image', signup.image)
     }
 
-    await this.userService.createUser(formData).subscribe((data: any) => {
-      console.log(`sucesso! ${data}`);
-      this.message = data;
-
-    })
+    // await this.userService.createUser(formData).subscribe((data: any) => {
+      // console.log(`sucesso! ${data}`);
+      // this.message = data;
+      this.router.navigate([`/perfil/12`])
+    // })
 
   }
 

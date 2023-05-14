@@ -1,0 +1,38 @@
+main {
+  width: 100vw;
+  height: auto;
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  margin-top: 2rem;
+}
+
+.card {
+  width: 15.625rem;
+  height: 4.375rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-top: 1rem;
+  border-radius: 0.625rem;
+
+  color: #1E1E1E;
+  background: #FFF;
+
+  cursor: pointer;
+  transition: .4s;
+}
+
+.card:hover {
+  color: #1ED760;
+  background: #fffefe;
+  box-shadow: 4px 4px 12px rgba(150, 149, 222, 0.2);
+}
