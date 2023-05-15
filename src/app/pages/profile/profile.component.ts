@@ -23,4 +23,9 @@ export class ProfileComponent {
     this.router.navigate([`${path}/${this.id}`])
   }
 
+  logout(){
+    localStorage.clear()
+    this.router.navigate(['/home'])
+  }
+
 }

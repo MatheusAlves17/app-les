@@ -45,7 +45,7 @@ export class LoginComponent {
         localStorage.setItem('user', JSON.stringify(data.user))
         localStorage.setItem('token', JSON.stringify(data.access_token))
         // this.router.navigate(['/home'])
-        this.router.navigate([`/perfil/${data.user.id }`])
+        this.router.navigate([`/home`])
       }, (err: any) =>{
         console.log(`erro: ${err.error.message}`);
         this.message = err.error.message;
