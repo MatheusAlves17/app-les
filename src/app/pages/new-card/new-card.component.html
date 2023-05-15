@@ -1,0 +1,8 @@
+<app-header></app-header>
+<!-- <app-messages [message]="message"></app-messages> -->
+<main>
+  <h2 class="title">Cartões</h2>
+  <section>
+    <app-card-form (onSubmit)="submit($event)" [data]="data" [btnText]="btnText"></app-card-form>
+  </section>
+</main>

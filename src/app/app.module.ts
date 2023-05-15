@@ -27,6 +27,10 @@ import { AddressComponent } from './pages/address/address.component';
 import { EditAddressComponent } from './pages/edit-address/edit-address.component';
 import { AddressFormComponent } from './components/address-form/address-form.component';
 import { NewAddressComponent } from './pages/new-address/new-address.component';
+import { CardComponent } from './pages/card/card.component';
+import { CardFormComponent } from './components/card-form/card-form.component';
+import { NewCardComponent } from './pages/new-card/new-card.component';
+import { EditCardComponent } from './pages/edit-card/edit-card.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +52,11 @@ import { NewAddressComponent } from './pages/new-address/new-address.component';
     AddressComponent,
     EditAddressComponent,
     AddressFormComponent,
-    NewAddressComponent
+    NewAddressComponent,
+    CardComponent,
+    CardFormComponent,
+    NewCardComponent,
+    EditCardComponent
   ],
   imports: [
     BrowserModule,

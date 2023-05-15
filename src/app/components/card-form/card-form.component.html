@@ -1,0 +1,32 @@
+<form (ngSubmit)="submit()" [formGroup]="cardForm" #formDir="ngForm">
+  <!-- <input type="hidden" formControlName="id"> -->
+  <div class="form-group">
+    <label for="first_four_digits">Primeiros 4 dígitos</label>
+    <input type="text" id="first_four_digits" placeholder="0000" required formControlName="first_four_digits" />
+    <div class="error" *ngIf="first_four_digits?.invalid && formDir.submitted">
+      <p class="error-message" *ngIf="first_four_digits.errors?.['required']">Informação obrigatória</p>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="last_four_digits">Últimos 4 dígitos</label>
+    <input type="text" id="last_four_digits" placeholder="0000" required formControlName="last_four_digits" />
+    <div class="error" *ngIf="last_four_digits?.invalid && formDir.submitted">
+      <p class="error-message" *ngIf="last_four_digits.errors?.['required']">Informação obrigatória</p>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="brand">Bandeira</label>
+    <input type="text" id="brand" placeholder="Mastercard" required formControlName="brand" />
+    <div class="error" *ngIf="brand?.invalid && formDir.submitted">
+      <p class="error-message" *ngIf="brand.errors?.['required']">Informação obrigatória</p>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="holder_name">Nome do Titular</label>
+    <input type="text" id="holder_name" placeholder="Nome completo" required formControlName="holder_name" />
+    <div class="error" *ngIf="holder_name?.invalid && formDir.submitted">
+      <p class="error-message" *ngIf="holder_name.errors?.['required']">Informação obrigatória</p>
+    </div>
+  </div>
+  <input type="submit" value="{{btnText}}">
+</form>

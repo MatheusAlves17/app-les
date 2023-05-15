@@ -15,6 +15,9 @@ import { EditProfileComponent } from './pages/edit-profile/edit-profile.componen
 import { AddressComponent } from './pages/address/address.component';
 import { EditAddressComponent } from './pages/edit-address/edit-address.component';
 import { NewAddressComponent } from './pages/new-address/new-address.component';
+import { CardComponent } from './pages/card/card.component';
+import { NewCardComponent } from './pages/new-card/new-card.component';
+import { EditCardComponent } from './pages/edit-card/edit-card.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -31,6 +34,9 @@ const routes: Routes = [
   { path: 'enderecos/:id', component: AddressComponent },
   { path: 'editar-endereco/:id', component: EditAddressComponent },
   { path: 'novo-endereco/:id', component: NewAddressComponent },
+  { path: 'cartoes/:id', component: CardComponent },
+  { path: 'novo-cartao/:id', component: NewCardComponent },
+  { path: 'editar-cartao/:id', component: EditCardComponent },
 ];
 
 @NgModule({

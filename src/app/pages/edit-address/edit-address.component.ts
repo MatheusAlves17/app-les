@@ -32,19 +32,12 @@ export class EditAddressComponent {
 
     this.addressService.getAddress(this.id).subscribe((data: any) => {
       this.data = data;
-      // localStorage.setItem('provisorio', JSON.stringify(this.data))
-      // console.log(`recebido: ${this.data}`);
     })
   }
 
   submit(event: any) {
     console.log(`event: ${event}`);
-    // if(this.data.street){
       return this.updateAddress(event);
-    // }
-    // else{
-      // return this.createAddress(event);
-    // }
   }
 
   createAddress(event: any){
@@ -53,7 +46,6 @@ export class EditAddressComponent {
       this.router.navigate([`/enderecos/${data.user_id}`])
     }, (err: any) => {
       console.log(`fail: ${err}`);
-      // localStorage.setItem('address', JSON.stringify(err));
     })
   }
 

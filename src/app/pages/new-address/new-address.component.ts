@@ -39,7 +39,6 @@ export class NewAddressComponent {
       this.router.navigate([`/enderecos/${this.id}`])
     }, (err: any) => {
       console.log(`fail: ${err}`);
-      // localStorage.setItem('address', JSON.stringify(err));
     })
   }
 

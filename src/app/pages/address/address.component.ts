@@ -27,7 +27,6 @@ export class AddressComponent {
   getAllAddress(){
     this.addressService.getAllAddress().subscribe((data: any) => {
       console.log(`sucesso! ${data}`);
-      localStorage.setItem('address', JSON.stringify(data.results))
       this.address = data.results;
       console.log("aqui: "+this.address);
 
