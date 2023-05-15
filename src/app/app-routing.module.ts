@@ -14,21 +14,23 @@ import { ProfileComponent } from './pages/profile/profile.component';
 import { EditProfileComponent } from './pages/edit-profile/edit-profile.component';
 import { AddressComponent } from './pages/address/address.component';
 import { EditAddressComponent } from './pages/edit-address/edit-address.component';
+import { NewAddressComponent } from './pages/new-address/new-address.component';
 
 const routes: Routes = [
-  {path: 'home', component: HomeComponent},
-  {path: 'login', component: LoginComponent},
-  {path: 'signup', component: SignupComponent},
-  {path: 'produto/:id', component: ProductDetailsComponent},
-  {path: 'carrinho', component: CartComponent},
-  {path: 'compra', component: PurchaseComponent},
-  {path: 'resumo', component: PurchaseResumeComponent},
-  {path: 'minhas-compras', component: MyPurchaseComponent},
-  {path: 'devolucao/:id', component: DevolutionComponent},
-  {path: 'perfil/:id', component: ProfileComponent},
-  {path: 'editar-perfil/:id', component: EditProfileComponent},
-  {path: 'enderecos/:id', component: AddressComponent},
-  {path: 'editar-endereco/:id', component: EditAddressComponent},
+  { path: 'home', component: HomeComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'signup', component: SignupComponent },
+  { path: 'produto/:id', component: ProductDetailsComponent },
+  { path: 'carrinho', component: CartComponent },
+  { path: 'compra', component: PurchaseComponent },
+  { path: 'resumo', component: PurchaseResumeComponent },
+  { path: 'minhas-compras', component: MyPurchaseComponent },
+  { path: 'devolucao/:id', component: DevolutionComponent },
+  { path: 'perfil/:id', component: ProfileComponent },
+  { path: 'editar-perfil/:id', component: EditProfileComponent },
+  { path: 'enderecos/:id', component: AddressComponent },
+  { path: 'editar-endereco/:id', component: EditAddressComponent },
+  { path: 'novo-endereco/:id', component: NewAddressComponent },
 ];
 
 @NgModule({

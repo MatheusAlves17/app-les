@@ -28,21 +28,20 @@ export class AddressComponent {
     this.addressService.getAllAddress().subscribe((data: any) => {
       console.log(`sucesso! ${data}`);
       localStorage.setItem('address', JSON.stringify(data.results))
-      this.address = data.results
+      this.address = data.results;
       console.log("aqui: "+this.address);
 
     }, (err: any) => {
       console.log(`erro: ${err.error.message}`);
-
     })
   }
 
-  goTo(id: string){
-    if(id === '1'){
-      this.router.navigate([`/editar-endereco/${this.id}`])
-    }else{
+  goToEditAddress(id: string){
       this.router.navigate([`/editar-endereco/${id}`])
-    }
+  }
+
+  goToNewAddress(){
+      this.router.navigate([`/novo-endereco/${this.id}`])
   }
 
   delete(id: string){

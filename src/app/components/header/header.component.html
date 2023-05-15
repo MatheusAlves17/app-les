@@ -10,7 +10,10 @@
       <a routerLink="/minhas-compras">Minhas compras</a>
     </li>
     <li>
-      <a routerLink="/login">Entrar</a>
+      <div class="avatarDefault" *ngIf="avatarDefault" (click)="goTo()">{{avatarDefault}}</div>
+    </li>
+    <li>
+      <a routerLink="/login" *ngIf="!avatarDefault">Entrar</a>
     </li>
   </ul>
 </nav>

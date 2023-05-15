@@ -31,7 +31,7 @@ export class AddressService {
     return this.http.get(`${this.apiUrl}`, this.httpOptions)
   }
 
-  getAddress(id: string){
+  getAddress(id: any){
     return this.http.get(`${this.apiUrl}/${id}`, this.httpOptions);
   }
 

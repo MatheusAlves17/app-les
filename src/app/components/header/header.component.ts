@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -8,15 +9,21 @@ import { Component } from '@angular/core';
 export class HeaderComponent {
 
   avatarDefault!: any;
+  id: string = '';
+
+  constructor(
+    private router: Router
+  ){}
 
   ngOnInit():void{
+    let user = localStorage.getItem('user');
+    let data = user ? JSON.parse(user) : '';
+    this.avatarDefault = data.name[0];
+    this.id = data.id;
+  }
 
-    let user = localStorage.getItem('user')
-    user = user ? JSON.parse(user) : ''
-
-    // this.avatarDefault = user ? user.name[0] : '';
-
-
+  goTo(){
+    this.router.navigate([`/perfil/:${this.id}`])
   }
 
 }
