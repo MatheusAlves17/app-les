@@ -1,15 +1,18 @@
 <app-header></app-header>
 <main>
   <section>
-    <div class="card" routerLink="/editar-perfil/123">
-      <p>Rua Campos do Jordão, 125, Vila Virginia, Itaquaquecetuba - SP</p>
-      <div class="card-footer">
-        <button class="btn-transparent" (click)="goTo('123')">
-          <img src="../../../assets/images/Purchase/Edit.svg"/>
-        </button>
-        <button class="btn-transparent">
-          <img src="../../../assets/images/Purchase/Delete.svg"/>
-        </button>
+    <button class="btn-green" (click)="goTo('1')">Adicionar novo</button>
+    <div *ngFor="let item of address">
+      <div class="card">
+        <p>{{item.street}}, {{item.number}}, {{item.zip_code}}, {{item.district}}, {{item.city}} - {{item.state}}</p>
+        <div class="card-footer">
+          <button class="btn-transparent" (click)="goTo(item.id)">
+            <img src="../../../assets/images/Purchase/Edit.svg" />
+          </button>
+          <button class="btn-transparent" (click)="delete(item.id)">
+            <img src="../../../assets/images/Purchase/Delete.svg" />
+          </button>
+        </div>
       </div>
     </div>
   </section>

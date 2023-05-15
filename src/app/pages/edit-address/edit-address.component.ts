@@ -11,9 +11,9 @@ import { IAddress } from 'src/app/interfaces/Address';
 export class EditAddressComponent {
 
   message: string = '';
-  btnText: string = 'Editar';
+  btnText: string = 'Salvar';
 
-  address!: IAddress;
+  data!: IAddress;
   id: string = '';
 
   constructor(
@@ -23,18 +23,50 @@ export class EditAddressComponent {
   ) { }
 
   ngOnInit(): void {
+    this.getAddressById();
+  }
+
+  getAddressById(){
     const urlId = this.route.snapshot.paramMap.get('id');
     this.id = urlId ? urlId : '';
 
     this.addressService.getAddress(this.id).subscribe((data: any) => {
-      console.log(`recebidos: ${data}`);
-      this.address = data;
+      this.data = data;
+      localStorage.setItem('provisorio', JSON.stringify(this.data))
+      // console.log(`recebido: ${this.data}`);
     })
   }
 
   submit(event: any) {
     console.log(`event: ${event}`);
+    // if(this.data.street){
+    //   return this.updateAddress(event);
+    // }
+    // else{
+      return this.createAddress(event);
+    // }
+  }
 
+  createAddress(event: any){
+    this.addressService.createAddress(event).subscribe((data: any) => {
+      console.log(`sucesso! ${data}`);
+      this.router.navigate([`/enderecos/${this.id}`])
+
+    }, (err: any) => {
+      console.log(`fail: ${err}`);
+      // localStorage.setItem('address', JSON.stringify(err));
+    })
+  }
+
+  updateAddress(event: any){
+    this.addressService.updateAddress(this.id, event).subscribe((data: any) => {
+      console.log(`sucesso! ${data}`);
+      localStorage.removeItem('provisorio')
+      this.router.navigate([`/enderecos/${this.id}`])
+
+    }, (err: any) => {
+      console.log(`erro: ${err.error.message}`);
+    })
   }
 
 }

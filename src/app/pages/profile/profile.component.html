@@ -1,10 +1,10 @@
 <app-header></app-header>
 <main>
   <section>
-    <div class="card" (click)="goTo()">
+    <div class="card" (click)="goTo('editar-perfil')">
       <h3>Minhas informações</h3>
     </div>
-    <div class="card" routerLink="/enderecos/123">
+    <div class="card" (click)="goTo('enderecos')">
       <h3>Endereços</h3>
     </div>
     <div class="card" routerLink="/home">

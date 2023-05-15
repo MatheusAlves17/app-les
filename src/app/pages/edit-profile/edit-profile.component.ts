@@ -15,7 +15,7 @@ export class EditProfileComponent {
   message: string = "";
   data!: ISignup;
   id: string = '';
-
+  token: string = '';
   constructor(
     private userService: UserService,
     private route: ActivatedRoute,
@@ -33,10 +33,6 @@ export class EditProfileComponent {
   async submit(data: ISignup){
     console.log(`data: ${data}`);
     const id = this.route.snapshot.paramMap.get('id')
-
-    // if(data.image){
-    //   formData.append('image', data.image)
-    // }
 
     await this.userService.updateUser(id, data).subscribe((data: any) => {
       console.log(`atualizado com sucesso! ${data}`);

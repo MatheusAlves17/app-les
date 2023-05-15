@@ -1,8 +1,8 @@
 <app-header></app-header>
 <app-messages [message]="message"></app-messages>
 <main>
-  <h2 class="title">Editar endereços</h2>
+  <h2 class="title">Endereço</h2>
   <section>
-    <app-address-form (onSubmit)="submit($event)" [data]="address" [btnText]="btnText" />
+    <app-address-form (onSubmit)="submit($event)" [data]="data" [btnText]="btnText"></app-address-form>
   </section>
 </main>

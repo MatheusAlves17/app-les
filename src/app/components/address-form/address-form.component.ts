@@ -14,12 +14,17 @@ export class AddressFormComponent {
 
   addressForm!: FormGroup;
 
+  end!: any;
 
-  constructor(){}
 
-  ngOnInit():void{
-    this.addressForm =  new FormGroup({
-      id: new FormControl(this.data ? this.data.id : '', [Validators.required]),
+  constructor() { }
+
+  ngOnInit(): void {
+
+    let endereco = localStorage.getItem('provisorio')
+    this.end = endereco ? JSON.parse(endereco) : null
+
+    this.addressForm = new FormGroup({
       street: new FormControl(this.data ? this.data.street : '', [Validators.required]),
       number: new FormControl(this.data ? this.data.number : '', [Validators.required]),
       district: new FormControl(this.data ? this.data.district : '', [Validators.required]),
@@ -28,29 +33,29 @@ export class AddressFormComponent {
       state: new FormControl(this.data ? this.data.state : '', [Validators.required]),
     })
   }
-  submit(){
-    const {value, valid} = this.addressForm;
-      localStorage.setItem('0', JSON.stringify(value));
-      this.onSubmit.emit(value)
-      console.log(`data: ${value}`);
+
+  submit() {
+    const { value, valid } = this.addressForm;
+    this.onSubmit.emit(value)
+    console.log(`data: ${value}`);
   }
 
-  get street () {
+  get street() {
     return this.addressForm.get('street')!;
   }
-  get number () {
+  get number() {
     return this.addressForm.get('number')!;
   }
-  get district () {
+  get district() {
     return this.addressForm.get('district')!;
   }
-  get zip_code () {
+  get zip_code() {
     return this.addressForm.get('zip_code')!;
   }
-  get city () {
+  get city() {
     return this.addressForm.get('city')!;
   }
-  get state () {
+  get state() {
     return this.addressForm.get('state')!;
   }
 

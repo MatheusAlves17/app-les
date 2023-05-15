@@ -19,8 +19,8 @@ export class ProfileComponent {
     this.id = this.route.snapshot.paramMap.get('id') ? this.route.snapshot.paramMap.get('id') : '';
   }
 
-  goTo(){
-    this.router.navigate([`editar-perfil/${this.id}`])
+  goTo(path: string){
+    this.router.navigate([`${path}/${this.id}`])
   }
 
 }

@@ -7,4 +7,16 @@ import { Component } from '@angular/core';
 })
 export class HeaderComponent {
 
+  avatarDefault!: any;
+
+  ngOnInit():void{
+
+    let user = localStorage.getItem('user')
+    user = user ? JSON.parse(user) : ''
+
+    // this.avatarDefault = user ? user.name[0] : '';
+
+
+  }
+
 }

@@ -26,6 +26,7 @@ import { EditProfileComponent } from './pages/edit-profile/edit-profile.componen
 import { AddressComponent } from './pages/address/address.component';
 import { EditAddressComponent } from './pages/edit-address/edit-address.component';
 import { AddressFormComponent } from './components/address-form/address-form.component';
+import { NewAddressComponent } from './pages/new-address/new-address.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { AddressFormComponent } from './components/address-form/address-form.com
     EditProfileComponent,
     AddressComponent,
     EditAddressComponent,
-    AddressFormComponent
+    AddressFormComponent,
+    NewAddressComponent
   ],
   imports: [
     BrowserModule,

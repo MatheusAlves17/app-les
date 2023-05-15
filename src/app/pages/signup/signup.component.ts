@@ -31,7 +31,8 @@ export class SignupComponent {
       console.log(`Sucesso! ${data}`);
       localStorage.setItem('user', JSON.stringify(data))
       this.message = 'Cadastro feito com sucesso!';
-      this.router.navigate([`/perfil/${data.id}`])
+      // this.router.navigate([`/perfil/${data.id}`])
+      this.router.navigate([`/login`])
     },((err: any) => {
       console.log(`falhou: ${err}`);
       this.message = err.error.message
