@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { CardService } from 'src/app/services/card.service';
+import { ProductService } from 'src/app/services/product.service';
 
 @Component({
-  selector: 'app-edit-card',
-  templateUrl: './edit-card.component.html',
-  styleUrls: ['./edit-card.component.css']
+  selector: 'app-edit-product',
+  templateUrl: './edit-product.component.html',
+  styleUrls: ['./edit-product.component.css']
 })
-export class EditCardComponent {
+export class EditProductComponent {
   btnText: string = 'Salvar';
   message: string = "";
   data!: any;
@@ -17,7 +17,7 @@ export class EditCardComponent {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private cardService: CardService
+    private productService: ProductService
   ) { }
 
   ngOnInit(): void {
@@ -26,13 +26,10 @@ export class EditCardComponent {
   }
 
   async submit(data: any) {
-    data.external_id = `${data.holder_name}-${data.last_four_digits}`
-
-    await this.cardService.updateCard(this.id, data).subscribe((data: any) => {
+    await this.productService.updateProduct(this.id, data).subscribe((data: any) => {
       console.log(`cadastrado com sucesso! ${data}`);
       this.message = "Cadastrado com sucesso!"
       this.router.navigate([`/cartoes/${data.user_id}`])
     })
-
   }
 }

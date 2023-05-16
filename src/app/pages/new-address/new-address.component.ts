@@ -36,7 +36,9 @@ export class NewAddressComponent {
   submit(event: any) {
 
     this.addressService.createAddress(event).subscribe((data: any) => {
-      this.router.navigate([`/enderecos/${this.id}`])
+      this.router.navigate([`/enderecos/${data.user_id}`])
+      localStorage.setItem('teste', JSON.stringify(data))
+      this.message = 'Cadastro feito com sucesso'
     }, (err: any) => {
       console.log(`fail: ${err}`);
     })

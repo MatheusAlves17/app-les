@@ -1,45 +1,17 @@
 <app-header></app-header>
 <main>
   <section>
-    <div class="card-container" (click)="goTo('1')">
-      <img src="https://img.ltwebstatic.com/images3_pi/2019/12/04/1575456506ff76ccaa4ac5ea12c3396865f3f74f63_thumbnail_600x.webp" class="card-image"/>
+    <div class="card-container"  [class.hide]="item > 2" *ngFor="let item of products" (click)="goTo(item.id)" >
+      <img src='../../../assets/images/Products/Product-default.png' *ngIf="!item.image" alt={{item.name}} class="card-image"/>
+      <img src={{item.image}} *ngIf="item.image" alt={{item.name}} class="card-image"/>
       <div class="card-body">
-        <p class="title">Relógio Quartzo</p>
+        <p class="title">{{item.name}}</p>
         <div class="row">
-          <p class="price">R$ 24.90</p>
+          <p class="price">R$ {{item.price}}</p>
           <button class="btn-transparent">Comprar</button>
         </div>
       </div>
     </div>
-    <div class="card-container">
-      <img src="https://img.ltwebstatic.com/images3_pi/2019/12/04/1575456506ff76ccaa4ac5ea12c3396865f3f74f63_thumbnail_600x.webp" class="card-image"/>
-      <div class="card-body">
-        <p class="title">Relógio Quartzo</p>
-        <div class="row">
-          <p class="price">R$ 24.90</p>
-          <button class="btn-transparent">Comprar</button>
-        </div>
-      </div>
-    </div>
-    <div class="card-container">
-      <img src="https://img.ltwebstatic.com/images3_pi/2019/12/04/1575456506ff76ccaa4ac5ea12c3396865f3f74f63_thumbnail_600x.webp" class="card-image"/>
-      <div class="card-body">
-        <p class="title">Relógio Quartzo</p>
-        <div class="row">
-          <p class="price">R$ 24.90</p>
-          <button class="btn-transparent">Comprar</button>
-        </div>
-      </div>
-    </div>
-    <div class="card-container">
-      <img src="https://img.ltwebstatic.com/images3_pi/2019/12/04/1575456506ff76ccaa4ac5ea12c3396865f3f74f63_thumbnail_600x.webp" class="card-image"/>
-      <div class="card-body">
-        <p class="title">Relógio Quartzo</p>
-        <div class="row">
-          <p class="price">R$ 24.90</p>
-          <button class="btn-transparent">Comprar</button>
-        </div>
-      </div>
-    </div>
+
   </section>
 </main>

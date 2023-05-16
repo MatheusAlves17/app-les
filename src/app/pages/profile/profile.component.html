@@ -10,6 +10,9 @@
     <div class="card" (click)="goTo('cartoes')">
       <h3>Formas de pagamento</h3>
     </div>
+    <div class="card" (click)="goTo('produtos')" *ngIf="role === 'Master'">
+      <h3>Gerenciar</h3>
+    </div>
     <div class="card"(click)="logout()">
       <h4 style="margin-right: 1rem;">Sair</h4> <img src="../../../assets/images/Header/Logout.svg"/>
     </div>

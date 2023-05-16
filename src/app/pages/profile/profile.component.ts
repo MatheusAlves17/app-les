@@ -9,7 +9,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class ProfileComponent {
 
   id: string | null = '';
-
+  role: string | null = '';
   constructor(
     private route: ActivatedRoute,
     private router: Router
@@ -17,6 +17,9 @@ export class ProfileComponent {
 
   ngOnInit():void{
     this.id = this.route.snapshot.paramMap.get('id') ? this.route.snapshot.paramMap.get('id') : '';
+    const user = localStorage.getItem('user');
+    const data = user ? JSON.parse(user) : '';
+    this.role = data.role;
   }
 
   goTo(path: string){

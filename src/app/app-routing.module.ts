@@ -18,6 +18,9 @@ import { NewAddressComponent } from './pages/new-address/new-address.component';
 import { CardComponent } from './pages/card/card.component';
 import { NewCardComponent } from './pages/new-card/new-card.component';
 import { EditCardComponent } from './pages/edit-card/edit-card.component';
+import { ProductsComponent } from './pages/products/products.component';
+import { NewProductComponent } from './pages/new-product/new-product.component';
+import { EditProductComponent } from './pages/edit-product/edit-product.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -37,6 +40,9 @@ const routes: Routes = [
   { path: 'cartoes/:id', component: CardComponent },
   { path: 'novo-cartao/:id', component: NewCardComponent },
   { path: 'editar-cartao/:id', component: EditCardComponent },
+  { path: 'produtos/:id', component: ProductsComponent },
+  { path: 'novo-produto/:id', component: NewProductComponent },
+  { path: 'editar-produto/:id', component: EditProductComponent },
 ];
 
 @NgModule({

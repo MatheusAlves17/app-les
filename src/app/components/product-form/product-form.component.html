@@ -1,0 +1,28 @@
+<form (ngSubmit)="submit()" [formGroup]="productForm" #formDir="ngForm">
+  <!-- <input type="hidden" formControlName="id"> -->
+  <div class="form-group">
+    <label for="price">Preço</label>
+    <input type="number" id="price" placeholder="Preço" required formControlName="price" />
+    <div class="error" *ngIf="price?.invalid && formDir.submitted">
+      <p class="error-message" *ngIf="price.errors?.['required']">Informação obrigatória</p>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="stock">Quantidade em estoque</label>
+    <input type="number" id="stock" placeholder="Ex: 10" required formControlName="stock" />
+    <div class="error" *ngIf="stock?.invalid && formDir.submitted">
+      <p class="error-message" *ngIf="stock.errors?.['required']">Informação obrigatória</p>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="name">Nome</label>
+    <input type="text" id="name" placeholder="Ex: Relógio Quartzo" required formControlName="name" />
+    <div class="error" *ngIf="name?.invalid && formDir.submitted">
+      <p class="error-message" *ngIf="name.errors?.['required']">Informação obrigatória</p>
+    </div>
+  </div>
+  <!-- <div class="form-group">
+    <input type="file" (change)="onFileSelected($event)" formControlName="image"/>
+  </div> -->
+  <input type="submit" value="{{btnText}}">
+</form>

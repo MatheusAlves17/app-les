@@ -82,6 +82,9 @@ p.error-message{
 
   border-left: 2px solid #d71e34;
 
+  display: flex;
+  align-items: center;
+
   margin: .4rem 0;
   padding-left: .4rem;
 }

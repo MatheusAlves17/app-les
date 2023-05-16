@@ -1,0 +1,19 @@
+<app-header></app-header>
+<main>
+  <section>
+    <button class="btn-green" (click)="goToNewProduct()">Adicionar novo</button>
+    <div>
+      <div class="card" *ngFor="let item of products">
+        <p>{{item.name}}</p>
+        <div class="card-footer">
+          <button class="btn-transparent" (click)="goToEditProduct(item.id)">
+            <img src="../../../assets/images/Purchase/Edit.svg" />
+          </button>
+          <button class="btn-transparent" (click)="delete(item.id)">
+            <img src="../../../assets/images/Purchase/Delete.svg" />
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>

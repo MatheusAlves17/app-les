@@ -15,7 +15,8 @@ section{
   display: flex;
   justify-content: space-between;
 }
-
+.hide{display: block;
+}
 .card-container{
   width: 17.813rem;
   height: 18.75rem;

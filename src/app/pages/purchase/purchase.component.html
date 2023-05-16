@@ -6,38 +6,40 @@
         <div class="row">
           <label for="address">Enviar para...</label>
           <div>
-            <button class="btn-transparent">
+            <button class="btn-transparent" *ngIf="!addressMessage">
               <img src="../../../assets/images/Purchase/Edit.svg" alt="">
             </button>
-            <button class="btn-transparent">
+            <button class="btn-transparent" (click)="goTo('novo-endereco')">
               <img src="../../../assets/images/Purchase/Add.svg" alt="">
             </button>
           </div>
         </div>
+        <p class="error-message" *ngIf="addressMessage"><img src="../../../assets/images/Purchase/Warning.svg"
+            style="margin-right: 0.2rem;">{{addressMessage}}</p>
         <select name="address" id="address">
-          <option value="id">Rua Campos do Jordão, 125, Vila Virginia, Itaquaquecetuba - SP</option>
-          <option value="id">Rua das Tulipas, 300, Vila Japão, Itaquaquecetuba - SP</option>
+          <option [value]="item.id" *ngFor="let item of addressOptions">{{item.street}}, {{item.number}}</option>
         </select>
       </div>
       <div class="form-group">
         <div class="row">
           <label for="address">Métodos de pagamento</label>
           <div style="display: flex;">
-            <button class="btn-transparent" (click)="addFormPayment()">
+            <button class="btn-transparent" (click)="addFormPayment()" *ngIf="!formPaymentMessage">
               <img src="../../../assets/images/Purchase/AddPayment.svg" />
             </button>
             <button class="btn-transparent">
-              <img src="../../../assets/images/Purchase/Edit.svg" alt="">
+              <img src="../../../assets/images/Purchase/Edit.svg" alt="" *ngIf="!formPaymentMessage">
             </button>
-            <button class="btn-transparent" >
+            <button class="btn-transparent" (click)="goTo('novo-cartao')">
               <img src="../../../assets/images/Purchase/Add.svg" alt="">
             </button>
           </div>
         </div>
-        <div class="form-group" *ngFor="let item of formPayment">
-          <select name="payment" [id]="item.id" [id]="item.id" [name]="item.name">
-            <option value="id" [value]="item.value">5266 **** **** 1764</option>
-            <option value="id" [value]="item.value">5892 **** **** 2244</option>
+        <p class="error-message" *ngIf="formPaymentMessage"><img src="../../../assets/images/Purchase/Warning.svg"
+            style="margin-right: 0.2rem;">{{formPaymentMessage}}</p>
+        <div class="form-group" >
+          <select name="payment" [id]="formPayment.id" [id]="formPayment.id" [name]="formPayment.id" >
+            <option value="id" [value]="item.id" *ngFor="let item of formPaymentOptions">{{item.external_id}}</option>
           </select>
         </div>
       </div>
@@ -55,7 +57,7 @@
           <option value="id">Cupom compra - 15%</option>
         </select>
       </div>
-      <input type="submit" value="Continuar"(click)="submit()">
+      <input type="submit" value="Continuar" (click)="submit()">
     </form>
   </section>
 </main>

@@ -1,5 +1,8 @@
+import { CartService } from './../../services/cart.service';
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { ICart } from 'src/app/interfaces/Cart';
+import { ProductService } from 'src/app/services/product.service';
 
 @Component({
   selector: 'app-product-details',
@@ -9,14 +12,42 @@ import { Router } from '@angular/router';
 export class ProductDetailsComponent {
 
   message: string = '';
+  id: string | null = '';
+  product: any = [];
+  items!: ICart;
 
   constructor(
-    private router: Router
-  ){}
+    private router: Router,
+    private route: ActivatedRoute,
+    private productService: ProductService,
+    private cartService: CartService
+  ) { }
 
-  ngOnInit(): void{}
+  ngOnInit(): void {
+    this.id = this.route.snapshot.paramMap.get('id') ? this.route.snapshot.paramMap.get('id') : '';
+    this.getProductById();
+  }
 
-  addCart(id: string){
-    this.message = "Item adicionado com sucesso!"
+  getProductById() {
+    this.productService.getProduct(this.id).subscribe((data: any) => {
+      this.product = data;
+      localStorage.setItem('0', JSON.stringify(this.product))
+    }, (err: any) => {
+      console.log(`erro: ${err.error.message}`);
+
+    })
+  }
+
+  addCart(id: string) {
+
+    const items = [{product_id: id, quantity: 1}]
+
+    this.cartService.createCart(items).subscribe((data: any) => {
+      console.log(`sucesso: ${data}`);
+      localStorage.setItem('cart', JSON.stringify(data));
+      this.router.navigate([`carrinho/${data.results.id}`]);
+    }
+    )
+
   }
 }

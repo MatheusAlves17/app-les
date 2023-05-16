@@ -2,16 +2,15 @@
 <main>
   <app-messages [message]="message"></app-messages>
   <section>
-    <img src="https://img.ltwebstatic.com/images3_pi/2019/12/04/1575456506ff76ccaa4ac5ea12c3396865f3f74f63_thumbnail_600x.webp" alt="Produto" class="image-product">
+    <img src={{product.image}} alt="Produto" class="image-product">
     <div class="card-body">
       <div class="row">
-        <p class="title">Relógio Quartzo</p>
-        <p class="price">R$ 24.90</p>
+        <p class="title">{{product.name}}</p>
+        <p class="price">R$ {{product.price}}</p>
       </div>
       <p class="legend">Tamanho único</p>
       <div class="row">
-        <button class="btn-transparent" style="background-color: transparent;" (click)="addCart('1')">Adicionar ao carrinho</button>
-        <button class="btn-green" routerLink="/compra">Comprar</button>
+        <button class="btn-green" (click)="addCart(product.id)">Comprar</button>
       </div>
     </div>
   </section>

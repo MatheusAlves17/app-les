@@ -31,6 +31,10 @@ import { CardComponent } from './pages/card/card.component';
 import { CardFormComponent } from './components/card-form/card-form.component';
 import { NewCardComponent } from './pages/new-card/new-card.component';
 import { EditCardComponent } from './pages/edit-card/edit-card.component';
+import { ProductsComponent } from './pages/products/products.component';
+import { ProductFormComponent } from './components/product-form/product-form.component';
+import { NewProductComponent } from './pages/new-product/new-product.component';
+import { EditProductComponent } from './pages/edit-product/edit-product.component';
 
 @NgModule({
   declarations: [
@@ -56,7 +60,11 @@ import { EditCardComponent } from './pages/edit-card/edit-card.component';
     CardComponent,
     CardFormComponent,
     NewCardComponent,
-    EditCardComponent
+    EditCardComponent,
+    ProductsComponent,
+    ProductFormComponent,
+    NewProductComponent,
+    EditProductComponent
   ],
   imports: [
     BrowserModule,
