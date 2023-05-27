@@ -32,7 +32,7 @@ export class ProductFormComponent {
       price: new FormControl('',[ Validators.required]),
       stock: new FormControl('', [Validators.required]),
       name: new FormControl('', [Validators.required]),
-      // image: new FormControl('https://img.ltwebstatic.com/images3_pi/2019/12/04/1575456506ff76ccaa4ac5ea12c3396865f3f74f63_thumbnail_600x.webp'),
+      image: new FormControl(),
     })
 
     this.productService.getProduct(this.id).subscribe(((data: any) => {
@@ -40,7 +40,7 @@ export class ProductFormComponent {
         price: new FormControl(data.price,[ Validators.required]),
         stock: new FormControl(data.stock, [Validators.required]),
         name: new FormControl(data.name, [Validators.required]),
-        // image: new FormControl(data.image),
+        image: new FormControl(data.image),
       })
     }),(err: any) => {
       console.log(`erro: ${err.error.message}`);
@@ -49,6 +49,7 @@ export class ProductFormComponent {
   }
 
   onFileSelected(event: any){
+    console.dir(event, {depth: null});
     const file: File = event.target.files[0];
     this.productForm.patchValue({
       image: file

@@ -12,7 +12,7 @@ export class SignupFormComponent {
   @Input() btnText!: string;
   @Input() data: ISignup | null = null;
   @Output() onSubmit = new EventEmitter<ISignup>()
-
+  hide: boolean = true;
   signupForm!: FormGroup;
   id: string | null = '';
 

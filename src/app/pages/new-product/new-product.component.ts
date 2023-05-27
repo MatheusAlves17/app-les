@@ -21,12 +21,13 @@ export class NewProductComponent {
   ){}
 
   async submit(data: any){
+    console.dir(data, {depth: null});
 
     const formData = new FormData();
     formData.append('price', data.price);
     formData.append('stock', data.stock);
     formData.append('name', data.name);
-    // formData.append('image', 'https://img.ltwebstatic.com/images3_pi/2019/12/04/1575456506ff76ccaa4ac5ea12c3396865f3f74f63_thumbnail_600x.webp');
+    formData.append('image', data.image);
     await this.productService.createProduct(data).subscribe((result: any) => {
       this.message = "Cadastrado com sucesso!"
       localStorage.setItem('result', JSON.stringify(result))

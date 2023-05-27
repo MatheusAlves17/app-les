@@ -35,7 +35,7 @@ export class ProductService {
   }
 
   createProduct(product: any){
-    localStorage.setItem('product', JSON.stringify(product))
+    // localStorage.setItem('product', JSON.stringify(product))
     return this.http.post(this.apiUrl, product, this.httpOptions)
   }
 
