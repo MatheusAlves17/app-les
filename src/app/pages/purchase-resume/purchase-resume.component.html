@@ -3,27 +3,14 @@
   <app-messages [message]="message" ></app-messages>
   <section>
     <div>
-
-      <img src="https://img.ltwebstatic.com/images3_pi/2019/12/04/1575456506ff76ccaa4ac5ea12c3396865f3f74f63_thumbnail_600x.webp" alt="Produto" class="image-product">
-      <div class="row">
-        <img src="https://img.ltwebstatic.com/images3_pi/2019/12/04/1575456506ff76ccaa4ac5ea12c3396865f3f74f63_thumbnail_600x.webp" alt="Produto" class="image-product-footer">
-        <img src="https://img.ltwebstatic.com/images3_pi/2019/12/04/1575456506ff76ccaa4ac5ea12c3396865f3f74f63_thumbnail_600x.webp" alt="Produto" class="image-product-footer">
-        <img src="https://img.ltwebstatic.com/images3_pi/2019/12/04/1575456506ff76ccaa4ac5ea12c3396865f3f74f63_thumbnail_600x.webp" alt="Produto" class="image-product-footer">
-      </div>
+      <img src={{first_image}} alt="Produto" class="image-product" *ngIf="first_image">
+      <img src='../../../assets/images/Products/Product-default.png' *ngIf="!first_image" alt={{first_image}} class="image-product">
     </div>
     <div class="resume">
       <h2>Resumo da compra</h2>
-      <div class="row">
-        <p class="legend">Relógio Quartzo</p>
-        <p class="price">R$ 24.90</p>
-      </div>
-      <div class="row">
-        <p class="legend">Frete</p>
-        <p class="price">R$ 10.00</p>
-      </div>
-      <div class="row total">
-        <p class="legend">Frete</p>
-        <p class="price">R$ 10.00</p>
+      <div class="row" *ngFor="let item of cart_items">
+        <p class="legend">{{item.product.name}}</p>
+        <p class="proce">R$ {{item.product.price}}</p>
       </div>
       <button class="btn-green" style="margin-right: 0; margin-top: 2rem;" (click)="buy()">Comprar</button>
     </div>

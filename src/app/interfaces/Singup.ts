@@ -5,5 +5,6 @@ export interface ISignup{
   phone: string;
   email: string;
   password: string;
+  birth_date: string;
   // image?: string;
 }

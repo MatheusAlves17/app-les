@@ -19,6 +19,7 @@ section{
   height: 28.395rem;
 
   border-radius: 0.5rem;
+  object-fit: cover;
 }
 
 .card-body{
@@ -35,7 +36,9 @@ section{
 .title{
   font-size: 0.875rem;
   font-weight: 500;
+  text-align: justify;
 
+  width: 70%;
   margin-top: 0;
 
   color: #1E1E1E;

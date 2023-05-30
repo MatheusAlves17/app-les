@@ -8,7 +8,8 @@ import { IAddress } from '../interfaces/Address';
   providedIn: 'root'
 })
 export class AddressService {
-  apiUrl = 'http://46.101.179.199/address';
+  // apiUrl = 'http://46.101.179.199/address';
+  apiUrl = 'http://localhost:3333/address';
 
   tokenJWT: any = localStorage.getItem('token')
   access_token: any = this.tokenJWT ? JSON.parse(this.tokenJWT) : null;

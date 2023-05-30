@@ -1,7 +1,7 @@
 <app-header></app-header>
 <main>
   <section>
-    <form>
+    <div class="form">
       <div class="form-group">
         <div class="row">
           <label for="address">Enviar para...</label>
@@ -16,10 +16,15 @@
         </div>
         <p class="error-message" *ngIf="addressMessage"><img src="../../../assets/images/Purchase/Warning.svg"
             style="margin-right: 0.2rem;">{{addressMessage}}</p>
-        <select name="address" id="address">
+        <select name="address" id="address" [(ngModel)]="addressId">
           <option [value]="item.id" *ngFor="let item of addressOptions">{{item.street}}, {{item.number}}</option>
         </select>
       </div>
+      <!-- <div class="form-group">
+          <div class="row">
+          <label for="address">Métodos de pagamento</label>
+        </div>
+      </div> -->
       <div class="form-group">
         <div class="row">
           <label for="address">Métodos de pagamento</label>
@@ -37,27 +42,47 @@
         </div>
         <p class="error-message" *ngIf="formPaymentMessage"><img src="../../../assets/images/Purchase/Warning.svg"
             style="margin-right: 0.2rem;">{{formPaymentMessage}}</p>
-        <div class="form-group" >
-          <select name="payment" [id]="formPayment.id" [id]="formPayment.id" [name]="formPayment.id" >
-            <option value="id" [value]="item.id" *ngFor="let item of formPaymentOptions">{{item.external_id}}</option>
-          </select>
+        <div class="row" *ngFor="let item of formPaymentOptions">
+          <div class="form-group">
+            <div class="row" style="border: 1px solid #1e1e1e;padding: .75rem; border-radius: 0.5rem;">
+              <!-- <input type="checkbox" name={{item.external_id}} id={{item.external_id}} value={{item.id}}
+                formControlName="payment"> -->
+              <p (click)="pushCard(item.id)" style="cursor: pointer;">{{item.external_id}}</p>
+            </div>
+          </div>
+          <div class="form-group">
+            <input type="number" id="card-payment" (blur)="pushPorcentage()" [(ngModel)]="value" />
+            <!-- <mat-slider class="example-margin" [max]="max" [min]="min" [step]="step" [discrete]="thumbLabel"
+              [showTickMarks]="showTicks">
+              <input matSliderThumb [(ngModel)]="value">
+              {{value}}
+            </mat-slider> -->
+            <!-- <select name="payment" [id]="percentage" [id]="percentage" [name]="percentage" formControlName="percentage">
+              <option value="id" [value]="item" *ngFor="let item of percentage" (click)="pushPorcentage(item)" style="cursor: pointer;">{{item}}%</option>
+            </select> -->
+            <!-- <div class="form-group" >
+                <select name="payment" [id]="formPayment.id" [id]="formPayment.id" [name]="formPayment.id" >
+                  <option value="id" [value]="item.id" *ngFor="let item of formPaymentOptions">{{item.external_id}}</option>
+                </select>
+              </div> -->
+          </div>
         </div>
       </div>
-      <div class="form-group">
-        <div class="row">
-          <label for="address">Cupom</label>
-          <div>
-            <button class="btn-transparent">
-              <img src="../../../assets/images/Purchase/Add.svg" alt="">
-            </button>
-          </div>
+      <!--  <div class="form-group">
+          <div class="row">
+            <label for="address">Cupom</label>
+            <div>
+              <button class="btn-transparent">
+                <img src="../../../assets/images/Purchase/Add.svg" alt="">
+              </button>
+            </div>
         </div>
         <select name="address" id="address">
           <option value="id">Cupom frete - 20%</option>
           <option value="id">Cupom compra - 15%</option>
         </select>
-      </div>
+      </div> -->
       <input type="submit" value="Continuar" (click)="submit()">
-    </form>
+    </div>
   </section>
 </main>

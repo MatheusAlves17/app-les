@@ -8,7 +8,8 @@ import { IProduct } from '../interfaces/Product';
   providedIn: 'root'
 })
 export class ProductService {
-  apiUrl = 'http://46.101.179.199/product';
+  // apiUrl = 'http://46.101.179.199/product';
+  apiUrl = 'http://localhost:3333/product';
 
   tokenJWT: any = localStorage.getItem('token')
   access_token: any = this.tokenJWT ? JSON.parse(this.tokenJWT) : null;

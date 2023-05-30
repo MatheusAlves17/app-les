@@ -18,7 +18,8 @@ a:hover{
   color: #1ED760;
 }
 
-form{
+form,
+.form{
   width: 450px;
   margin: 1.5rem auto ;
 }
@@ -140,3 +141,6 @@ p{
 .btn-green:hover{
   background-color: #4be07f;
 }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

@@ -2,9 +2,11 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatSliderModule } from '@angular/material/slider';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+
 
 
 
@@ -35,6 +37,7 @@ import { ProductsComponent } from './pages/products/products.component';
 import { ProductFormComponent } from './components/product-form/product-form.component';
 import { NewProductComponent } from './pages/new-product/new-product.component';
 import { EditProductComponent } from './pages/edit-product/edit-product.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -73,6 +76,8 @@ import { EditProductComponent } from './pages/edit-product/edit-product.componen
     FormsModule,
     ReactiveFormsModule,
     FontAwesomeModule,
+    MatSliderModule,
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

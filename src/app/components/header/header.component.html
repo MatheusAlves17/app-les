@@ -7,10 +7,10 @@
       <a routerLink="/carrinho">Carrinho</a>
     </li>
     <li>
-      <a routerLink="/minhas-compras">Minhas compras</a>
+      <p (click)="goTo('minhas-compras')">Minhas compras</p>
     </li>
     <li>
-      <div class="avatarDefault" *ngIf="avatarDefault" (click)="goTo()">{{avatarDefault}}</div>
+      <div class="avatarDefault" *ngIf="avatarDefault" (click)="goTo('perfil')">{{avatarDefault}}</div>
     </li>
     <li>
       <a routerLink="/login" *ngIf="!avatarDefault">Entrar</a>

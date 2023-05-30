@@ -41,10 +41,10 @@ export class ProductDetailsComponent {
   addCart(id: string) {
 
     const items = [{product_id: id, quantity: 1}]
-
     this.cartService.createCart({items}).subscribe((data: any) => {
-      console.log(`sucesso: ${data}`);
-      localStorage.setItem('cart', JSON.stringify(data));
+      this.router.navigate([`/compra/${data.id}`])
+        localStorage.setItem('cart', JSON.stringify(data));
+      console.dir(data, {depth: null});
       this.router.navigate([`carrinho/${data.results.id}`]);
     }
     )

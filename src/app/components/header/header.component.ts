@@ -22,8 +22,8 @@ export class HeaderComponent {
     this.id = data.id;
   }
 
-  goTo(){
-    this.router.navigate([`/perfil/:${this.id}`])
+  goTo(path: string){
+    this.router.navigate([`/${path}/:${this.id}`])
   }
 
 }

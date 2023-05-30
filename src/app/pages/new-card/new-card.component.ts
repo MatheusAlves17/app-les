@@ -21,7 +21,7 @@ export class NewCardComponent {
 
   async submit(data: any){
     console.log(`data: ${data}`);
-    data.external_id = `${data.holder_name}-${data.last_four_digits}`
+    data.external_id = `${data.brand}-${data.last_four_digits}`
     const id = this.route.snapshot.paramMap.get('id')
 
     await this.cardService.createCard(data).subscribe((data: any) => {

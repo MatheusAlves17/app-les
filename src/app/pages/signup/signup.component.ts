@@ -15,6 +15,9 @@ export class SignupComponent {
   constructor(private userService: UserService, private router: Router){}
 
   async createHandler(signup: ISignup){
+    console.dir(signup, {depth: null});
+
+
     // const formData = new FormData();
 
     // formData.append('name', signup.name);
@@ -34,7 +37,7 @@ export class SignupComponent {
       // this.router.navigate([`/perfil/${data.id}`])
       this.router.navigate([`/login`])
     },((err: any) => {
-      console.log(`falhou: ${err}`);
+      console.dir(`falhou: ${err.error.message}`, {depth: null});
       this.message = err.error.message
     }))
 

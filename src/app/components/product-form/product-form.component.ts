@@ -32,7 +32,7 @@ export class ProductFormComponent {
       price: new FormControl('',[ Validators.required]),
       stock: new FormControl('', [Validators.required]),
       name: new FormControl('', [Validators.required]),
-      image: new FormControl(),
+      // image: new FormControl(),
     })
 
     this.productService.getProduct(this.id).subscribe(((data: any) => {
@@ -40,7 +40,7 @@ export class ProductFormComponent {
         price: new FormControl(data.price,[ Validators.required]),
         stock: new FormControl(data.stock, [Validators.required]),
         name: new FormControl(data.name, [Validators.required]),
-        image: new FormControl(data.image),
+        // image: new FormControl(data.image),
       })
     }),(err: any) => {
       console.log(`erro: ${err.error.message}`);

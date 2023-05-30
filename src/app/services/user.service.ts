@@ -8,7 +8,10 @@ import { ISignup } from '../interfaces/Singup';
   providedIn: 'root'
 })
 export class UserService {
-  apiUrl = 'http://46.101.179.199/user/';
+  // apiUrl = 'http://46.101.179.199/user/';
+  // apiUrl = 'http://46.101.179.199/user/';
+  apiUrl = 'http://localhost:3333/user';
+
 
   tokenJWT: any = localStorage.getItem('token')
   access_token: any = this.tokenJWT ? JSON.parse(this.tokenJWT) : null;

@@ -21,6 +21,8 @@ section{
   height: 28.395rem;
 
   border-radius: 0.5rem;
+  object-fit: contain;
+
 }
 
 .image-product-footer{
@@ -60,8 +62,10 @@ h2{
 p.legend{
   font-size: 0.875rem;
   font-weight: 500;
+  text-align: left;
 
   color: #1E1E1E;
+  width: 70%;
 }
 
 p.price{

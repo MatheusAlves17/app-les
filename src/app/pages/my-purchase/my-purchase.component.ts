@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { CartService } from 'src/app/services/cart.service';
 
 @Component({
   selector: 'app-my-purchase',
@@ -8,9 +9,20 @@ import { Router } from '@angular/router';
 })
 export class MyPurchaseComponent {
 
+  id: string | null = '';
+
   constructor(
-    private router: Router
-  ){}
+    private router: Router,
+    private route: ActivatedRoute,
+    private cartService: CartService
+    ){}
+
+  ngOnInit(): void {
+    this.id = this.route.snapshot.paramMap.get('id')
+    this.cartService.getAllCart().subscribe((data: any) => {
+      console.dir(data, {depth: null})
+    })
+  }
 
   goTo(id: string){
     this.router.navigate([`/devolucao/${id}`])

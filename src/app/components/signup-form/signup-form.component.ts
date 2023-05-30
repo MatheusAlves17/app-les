@@ -46,6 +46,9 @@ export class SignupFormComponent {
   get phone () {
     return this.signupForm.get('phone')!;
   }
+  get birth_date () {
+    return this.signupForm.get('birth_date')!;
+  }
 
   get email () {
     return this.signupForm.get('email')!;
