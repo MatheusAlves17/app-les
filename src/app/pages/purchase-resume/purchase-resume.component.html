@@ -2,15 +2,15 @@
 <main>
   <app-messages [message]="message" ></app-messages>
   <section>
-    <div>
-      <img src={{first_image}} alt="Produto" class="image-product" *ngIf="first_image">
-      <img src='../../../assets/images/Products/Product-default.png' *ngIf="!first_image" alt={{first_image}} class="image-product">
+    <div *ngFor="let item of images" class="products">
+      <img src={{item}} alt="Produto" class="image-product-footer">
+      <!-- <img src='../../../assets/images/Products/Product-default.png' *ngIf="!first_image" alt={{first_image}} class="image-product"> -->
     </div>
     <div class="resume">
       <h2>Resumo da compra</h2>
       <div class="row" *ngFor="let item of cart_items">
-        <p class="legend">{{item.product.name}}</p>
-        <p class="proce">R$ {{item.product.price}}</p>
+        <p class="legend">{{item.quantity}}x {{item.product.name}}</p>
+        <p class="proce">{{item.product.price * item.quantity| currency: 'BRL'}}</p>
       </div>
       <button class="btn-green" style="margin-right: 0; margin-top: 2rem;" (click)="buy()">Comprar</button>
     </div>

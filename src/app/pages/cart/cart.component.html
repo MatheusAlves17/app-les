@@ -14,7 +14,7 @@
       <div>
         <p class="title">{{item.name}}</p>
         <div class="row">
-          <div class="legend">R$ {{item.price}}</div>
+          <div class="legend">{{item.price * item.quantity | currency: 'BRL'}}</div>
           <p class="legend" *ngIf="item.quantity === 0 ">0</p>
           <p class="legend" *ngIf="item.quantity > 1">{{item.quantity}} itens adicionados</p>
           <p class="legend" *ngIf="item.quantity === 1">{{item.quantity}} item adicionado</p>
@@ -35,5 +35,5 @@
       </div>
     </div>
   </section>
-  <button class="btn-green" style="margin-right: 1rem; margin-top: .75rem;">Comprar</button>
+  <button class="btn-green" style="margin-right: 1rem; margin-top: .75rem;" (click)="purchase()">Comprar {{totalPrice | currency: 'BRL'}}</button>
 </main>

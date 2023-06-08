@@ -25,6 +25,11 @@ section{
 
 }
 
+.products{
+  display: flex;
+  flex-wrap: wrap;
+}
+
 .image-product-footer{
   width: 6.25rem;
   height: 6.25rem;

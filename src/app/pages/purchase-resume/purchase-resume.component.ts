@@ -8,12 +8,12 @@ import { CartService } from 'src/app/services/cart.service';
   styleUrls: ['./purchase-resume.component.css']
 })
 export class PurchaseResumeComponent {
-
-  first_image: string = '';
   cart_items!: any;
   id: string | null = '';
 
+  images: any = [];
   message: string = '';
+
 
   constructor(
     private cartService: CartService,
@@ -24,11 +24,13 @@ export class PurchaseResumeComponent {
   ngOnInit(): void {
     this.id = this.route.snapshot.paramMap.get('id');
     this.cartService.getCart(this.id).subscribe((data: any) => {
-      console.dir(data, { depth: null })
       this.cart_items = data.cart_items;
-      console.dir(this.cart_items, {depth: null});
-      console.log('aui');
-      this.first_image = data.carts_items[0].image;
+      console.dir(this.cart_items);
+      let products = this.cart_items.map(({product}: any) => ({product}))
+      // this.cart_items = products;
+
+      this.images = products.map(({product}: any) => product.image)
+
 
     })
   }
@@ -38,7 +40,10 @@ export class PurchaseResumeComponent {
     const cart = cartStorage ? JSON.parse(cartStorage) : '';
 
     this.cartService.payCart(this.id, cart).subscribe((data: any) => {
-      console.dir(data, {depth: null});
+      console.dir(data);
+      localStorage.removeItem('CARRINHO');
+      localStorage.removeItem('cart');
+      localStorage.removeItem('cartProducts');
       this.message = 'Compra finalizada! Acompanhe a entrega'
     }, (err: any) => {
       this.message = err.error.message;

@@ -21,8 +21,10 @@ export class HomeComponent {
   ngOnInit(): void {
     this.getAllProducts()
     let items = localStorage.getItem('cart');
-    if (items) {
+    let product = localStorage.getItem('cartProducts');
+    if (items && product) {
       this.itemsCart = JSON.parse(items)
+      this.productsCart = JSON.parse(product)
     }
   }
 
@@ -42,18 +44,18 @@ export class HomeComponent {
       this.productsCart = [];
     }
 
-    let newItem =
-    {
-      product_id: id,
-      quantity: 1
-    }
+    // let newItem =
+    // {
+    //   product_id: id,
+    //   quantity: 1
+    // }
 
     item.quantity = 1;
     this.productsCart.push(item)
 
-    this.itemsCart.push(newItem);
+    // this.itemsCart.push(newItem);
 
-    localStorage.setItem('cart', JSON.stringify(this.itemsCart))
+    // localStorage.setItem('cart', JSON.stringify(this.itemsCart))
     localStorage.setItem('cartProducts', JSON.stringify(this.productsCart))
     console.dir(this.productsCart);
   }
