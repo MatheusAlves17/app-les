@@ -4,30 +4,22 @@
     <h2>Minhas compras</h2>
   </div>
   <section>
-    <div class="card">
+    <div class="card" *ngFor="let item of cartItem">
       <div>
         <p class="status">Em trânsito</p>
-        <p class="legend">16 de abril de 2023</p>
+        <p class="legend">{{item[0].created_at | date: 'dd/MM/yyyy'}}</p>
       </div>
-      <img src="https://img.ltwebstatic.com/images3_pi/2019/12/04/1575456506ff76ccaa4ac5ea12c3396865f3f74f63_thumbnail_600x.webp" alt="" class="image-product">
-      <img src="https://img.ltwebstatic.com/images3_pi/2019/12/04/1575456506ff76ccaa4ac5ea12c3396865f3f74f63_thumbnail_600x.webp" alt="" class="image-product">
-      <img src="https://img.ltwebstatic.com/images3_pi/2019/12/04/1575456506ff76ccaa4ac5ea12c3396865f3f74f63_thumbnail_600x.webp" alt="" class="image-product">
+      <!-- <img
+        src={{item[0].products[0].image}}
+        alt="" class="image-product"> -->
+      <img
+        src='../../../assets/images/Products/Product-default.png'
+        alt="" class="image-product">
       <div>
         <button class="btn-transparent" (click)="goTo('1')">Fazer devolução</button>
         <button class="btn-green">Recebido</button>
       </div>
     </div>
-    <div class="card">
-      <div>
-        <p class="status" style="color: #1E68D7;">Entregue</p>
-        <p class="legend">16 de abril de 2023 - 23 de abril de 2023</p>
-      </div>
-      <img src="https://img.ltwebstatic.com/images3_pi/2019/12/04/1575456506ff76ccaa4ac5ea12c3396865f3f74f63_thumbnail_600x.webp" alt="" class="image-product">
-      <img src="https://img.ltwebstatic.com/images3_pi/2019/12/04/1575456506ff76ccaa4ac5ea12c3396865f3f74f63_thumbnail_600x.webp" alt="" class="image-product">
-      <img src="https://img.ltwebstatic.com/images3_pi/2019/12/04/1575456506ff76ccaa4ac5ea12c3396865f3f74f63_thumbnail_600x.webp" alt="" class="image-product">
-      <div>
-        <button class="btn-transparent" (click)="goTo('1')">Fazer devolução</button>
-      </div>
-    </div>
+
   </section>
 </main>

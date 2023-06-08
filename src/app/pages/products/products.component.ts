@@ -21,7 +21,9 @@ export class ProductsComponent {
   ){}
 
   ngOnInit(): void {
-    this.id = this.route.snapshot.paramMap.get('id') ? this.route.snapshot.paramMap.get('id') : '';
+    let user = localStorage.getItem('user');
+    let id = user ? JSON.parse(user) : null;
+    this.id = id;
     this.getAllProducts()
   }
 

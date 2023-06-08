@@ -8,8 +8,8 @@ import { ICard } from '../interfaces/Card';
   providedIn: 'root'
 })
 export class CardService {
-  // apiUrl = 'http://46.101.179.199/payment_card';
-  apiUrl = 'http://localhost:3333/payment_card';
+  apiUrl = 'http://46.101.179.199/payment_card';
+  // apiUrl = 'http://localhost:3333/payment_card';
 
 
   tokenJWT: any = localStorage.getItem('token')

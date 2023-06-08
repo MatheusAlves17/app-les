@@ -12,6 +12,7 @@ export class EditProductComponent {
   message: string = "";
   data!: any;
   id: string = '';
+  userId: string = '';
 
 
   constructor(
@@ -21,6 +22,12 @@ export class EditProductComponent {
   ) { }
 
   ngOnInit(): void {
+    let user = localStorage.getItem('user');
+    let userId = user ? JSON.parse(user) : null;
+    this.userId = userId.id;
+    console.log(this.userId);
+
+
     const urlId = this.route.snapshot.paramMap.get('id');
     this.id = urlId ? urlId : '';
   }
@@ -28,8 +35,8 @@ export class EditProductComponent {
   async submit(data: any) {
     await this.productService.updateProduct(this.id, data).subscribe((data: any) => {
       console.log(`cadastrado com sucesso! ${data}`);
-      this.message = "Cadastrado com sucesso!"
-      this.router.navigate([`/cartoes/${data.user_id}`])
+      this.message = "Alterado com sucesso!"
+      // this.router.navigate([`/cartoes/:${this.userId}`])
     })
   }
 }

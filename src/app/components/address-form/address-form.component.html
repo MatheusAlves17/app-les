@@ -1,7 +1,7 @@
 <form (ngSubmit)="submit()" [formGroup]="addressForm" #formDir="ngForm">
   <div class="form-group">
     <label for="street">Rua</label>
-    <input type="text" id="street" placeholder="Rua dos Bobos" required formControlName="street"/>
+    <input type="text" id="street" placeholder="Rua dos Vales" required formControlName="street"/>
     <div class="error" *ngIf="street?.invalid && formDir.submitted">
       <p class="error-message"
       *ngIf="street.errors?.['required']">Rua obrigatória</p>

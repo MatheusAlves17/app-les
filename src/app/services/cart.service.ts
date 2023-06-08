@@ -8,8 +8,8 @@ import { ICart } from '../interfaces/Cart';
   providedIn: 'root'
 })
 export class CartService {
-  // apiUrl = 'http://46.101.179.199/cart';
-  apiUrl = 'http://localhost:3333/cart';
+  apiUrl = 'http://46.101.179.199/cart';
+  // apiUrl = 'http://localhost:3333/cart';
 
 
   tokenJWT: any = localStorage.getItem('token')

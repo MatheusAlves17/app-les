@@ -8,9 +8,8 @@ import { ISignup } from '../interfaces/Singup';
   providedIn: 'root'
 })
 export class UserService {
-  // apiUrl = 'http://46.101.179.199/user/';
-  // apiUrl = 'http://46.101.179.199/user/';
-  apiUrl = 'http://localhost:3333/user';
+  apiUrl = 'http://46.101.179.199/user/';
+  // apiUrl = 'http://localhost:3333/user';
 
 
   tokenJWT: any = localStorage.getItem('token')
@@ -43,8 +42,13 @@ export class UserService {
   }
 
   updateUser(id: any, data: any): Observable<any>{
-    const url = `${this.apiUrl}/${id}`
-    console.log(`url: ${url}`);
+    // console.dir(id, {depth: null});
+    let string_id = String(id);
+    string_id = string_id.slice(1)
+    // console.log("string", string_id);
+
+    const url = `${this.apiUrl}${string_id}`
+    // console.log(`url: ${url}`);
 
     return this.http.put<any>(url, data, this.httpOptions);
   }
