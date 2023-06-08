@@ -31,7 +31,7 @@ export class ProductDetailsComponent {
   getProductById() {
     this.productService.getProduct(this.id).subscribe((data: any) => {
       this.product = data;
-      localStorage.setItem('0', JSON.stringify(this.product))
+      // localStorage.setItem('0', JSON.stringify(this.product))
     }, (err: any) => {
       console.log(`erro: ${err.error.message}`);
 

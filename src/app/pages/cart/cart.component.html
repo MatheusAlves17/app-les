@@ -7,22 +7,31 @@
     <p *ngIf="quantity === 1">{{quantity}} item adicionado</p>
   </div>
   <section>
-    <div class="card">
-      <img src="https://img.ltwebstatic.com/images3_pi/2019/12/04/1575456506ff76ccaa4ac5ea12c3396865f3f74f63_thumbnail_600x.webp" alt="" class="image-product">
+    <div class="card" *ngFor="let item of itemsCart">
+      <img src={{item.image}} alt="" class="image-product" *ngIf="item.image">
+      <img src='../../../assets/images/Products/Product-default.png' alt="" style="object-fit: cover;"
+        class="image-product" *ngIf="!item.image">
       <div>
-        <p class="title">Relógio Quartzo</p>
+        <p class="title">{{item.name}}</p>
         <div class="row">
-          <div class="legend">R$ 24.90</div>
-          <p class="legend" *ngIf="quantity === 0 ">0</p>
-          <p class="legend" *ngIf="quantity > 1">{{quantity}} itens adicionados</p>
-          <p class="legend" *ngIf="quantity === 1">{{quantity}} item adicionado</p>
+          <div class="legend">R$ {{item.price}}</div>
+          <p class="legend" *ngIf="item.quantity === 0 ">0</p>
+          <p class="legend" *ngIf="item.quantity > 1">{{item.quantity}} itens adicionados</p>
+          <p class="legend" *ngIf="item.quantity === 1">{{item.quantity}} item adicionado</p>
           <!-- <div >{{quantity}} unidade</div> -->
         </div>
       </div>
       <div>
-        <button class="btn-cart" (click)="sub()">-</button>
-        <p class="quantity">{{quantity}}</p>
-        <button class="btn-cart" (click)="sum()">+</button>
+
+        <div>
+          <button class="btn-cart" *ngIf="item.quantity > 0" (click)="sub(item)">-</button>
+          <button class="btn-cart" *ngIf="item.quantity <= 0">-</button>
+          <p class="quantity">{{item.quantity}}</p>
+          <button class="btn-cart" (click)="sum(item)">+</button>
+        </div>
+        <button class="btn-transparent" style="display: block; margin: 0 auto;" (click)="removeItem(item.id)">
+          <img src="../../../assets/images/Purchase/Remove.svg" />
+        </button>
       </div>
     </div>
   </section>
