@@ -13,6 +13,7 @@ export class MyPurchaseComponent {
   orderList: [] = [];
   cartItem!: any;
   products: [] = [];
+  images: any = [];
 
   constructor(
     private router: Router,
@@ -26,7 +27,12 @@ export class MyPurchaseComponent {
       let paid = data.results;
       this.orderList = paid.filter((item: any) => item.paid_status === 'PAID')
       this.cartItem = this.orderList.map((item: any) => item.cart_items);
-      console.dir(this.cartItem, {depth: null})
+      // let products = this.cartItem.map(({product}: any) => ({product}))
+      // let items = this.cartItem.map((item: any) => item)
+      // let products = this.cartItem.map(({product}: any) => ({product}))
+      // this.images = products.map(({product}: any) => product.image)
+      console.dir(this.cartItem)
+      // console.dir(this.images)
     })
   }
 

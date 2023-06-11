@@ -25,10 +25,7 @@ export class PurchaseResumeComponent {
     this.id = this.route.snapshot.paramMap.get('id');
     this.cartService.getCart(this.id).subscribe((data: any) => {
       this.cart_items = data.cart_items;
-      console.dir(this.cart_items);
       let products = this.cart_items.map(({product}: any) => ({product}))
-      // this.cart_items = products;
-
       this.images = products.map(({product}: any) => product.image)
 
 
