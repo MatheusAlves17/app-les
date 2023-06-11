@@ -17,13 +17,12 @@ export class CartComponent {
 
   constructor(
     private cartService: CartService,
-    private route: ActivatedRoute,
     private router: Router
-    ) { }
+  ) { }
 
   ngOnInit(): void {
-    // this.id  = this.route.snapshot.paramMap.get('id') ? this.route.snapshot.paramMap.get('id')  : '';
     this.getCart();
+    this.calcTotalPrice();
   }
 
   getCart() {
@@ -34,29 +33,38 @@ export class CartComponent {
     }
   }
 
+  calcTotalPrice(): void {
+    this.totalPrice = 0;
+    this.itemsCart.map((item: any) => {
+      this.totalPrice += item.price * item.quantity;
+    })
+  }
+
 
   sum(item: any) {
     let quantidade = this.itemsCart.filter((product: any) => product.id === item.id);
     quantidade[0].quantity = quantidade[0].quantity + 1;
     localStorage.setItem('cartProducts', JSON.stringify(this.itemsCart))
-   }
+    this.calcTotalPrice();
+  }
 
   sub(item: any) {
     let quantidade = this.itemsCart.filter((product: any) => product.id === item.id);
     quantidade[0].quantity = quantidade[0].quantity - 1;
 
-    // this.totalPrice = quantidade[0].quantity * quantidade[0].price;
-
     if (quantidade[0].quantity <= 0) {
       this.removeItem(quantidade[0].id);
     }
-    localStorage.setItem('cartProducts', JSON.stringify(this.itemsCart))
-
+    localStorage.setItem('cartProducts', JSON.stringify(this.itemsCart));
+    this.calcTotalPrice();
+    this.quantity = this.itemsCart.length;
   }
 
   removeItem(product_id: string) {
     this.itemsCart = this.itemsCart.filter((product: any) => product.id !== product_id);
-    localStorage.setItem('cartProducts', JSON.stringify(this.itemsCart))
+    localStorage.setItem('cartProducts', JSON.stringify(this.itemsCart));
+    this.calcTotalPrice();
+    this.quantity = this.itemsCart.length;
   }
 
   purchase() {
@@ -76,9 +84,10 @@ export class CartComponent {
     console.dir(items);
 
 
-    this.cartService.createCart({items}).subscribe((data: any) => {
+    this.cartService.createCart({ items }).subscribe((data: any) => {
       this.router.navigate([`/compra/${data.id}`])
       localStorage.setItem('cart', JSON.stringify(data));
+      localStorage.setItem('total', JSON.stringify(this.totalPrice))
       console.dir(data);
       this.router.navigate([`carrinho/${data.results.id}`]);
     }

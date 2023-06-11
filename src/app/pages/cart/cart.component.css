@@ -95,6 +95,12 @@ button.btn-cart:hover{
 
 }
 
+.btn-float{
+  position: absolute;
+  top: 15%;
+  right: 10%;
+}
+
 p.quantity{
   padding: .60rem 1rem;
 

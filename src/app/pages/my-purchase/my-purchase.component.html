@@ -4,21 +4,24 @@
     <h2>Minhas compras</h2>
   </div>
   <section>
-    <div class="card" *ngFor="let item of cartItem">
+    <div class="card" *ngFor="let item of orderList">
       <div>
         <p class="status">Em trânsito</p>
-        <!-- <p class="legend">{{item | date: 'dd/MM/yyyy'}}</p> -->
+        <p class="legend">{{item.created_at | date: 'dd/MM/yyyy'}}</p>
       </div>
-      <!-- <img
-        src={{item[0].products[0].image}}
-        alt="" class="image-product"> -->
-        <div>
-          <!-- <img
-          src={{images.images}}
-          alt="" class="image-product"> -->
+        <div *ngFor="let purchaseItem of item.cart_items">
+          <!-- <div *ngFor="let product of purchaseItem"> -->
+          <!-- </div> -->
+          <img
+          src={{purchaseItem.product.image}}
+          alt="" class="image-product">
+          <img
+          *ngIf="!purchaseItem.product.image"
+          src='../../../assets/images/Products/Product-default.png'
+          alt="" class="image-product">
         </div>
       <div>
-        <button class="btn-transparent" (click)="goTo('1')">Fazer devolução</button>
+        <!-- <button class="btn-transparent" (click)="goTo('1')">Fazer devolução</button> -->
         <button class="btn-green">Recebido</button>
       </div>
     </div>

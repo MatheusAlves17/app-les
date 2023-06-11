@@ -2,11 +2,14 @@
 <main>
   <div class="row">
     <h2>Carrinho</h2>
+  </div>
+  <br>
+  <div>
     <p *ngIf="quantity === 0 ">Nenhum item adicionado</p>
     <p *ngIf="quantity > 1">{{quantity}} itens adicionados</p>
     <p *ngIf="quantity === 1">{{quantity}} item adicionado</p>
   </div>
-  <section>
+  <section *ngIf="quantity >= 1">
     <div class="card" *ngFor="let item of itemsCart">
       <img src={{item.image}} alt="" class="image-product" *ngIf="item.image">
       <img src='../../../assets/images/Products/Product-default.png' alt="" style="object-fit: cover;"
@@ -34,6 +37,7 @@
         </button>
       </div>
     </div>
+    <button class="btn-green" style="btn-float" (click)="purchase()">Comprar {{totalPrice | currency: 'BRL'}}</button>
   </section>
-  <button class="btn-green" style="margin-right: 1rem; margin-top: .75rem;" (click)="purchase()">Comprar {{totalPrice | currency: 'BRL'}}</button>
+
 </main>

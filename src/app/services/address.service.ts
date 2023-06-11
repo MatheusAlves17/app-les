@@ -28,6 +28,10 @@ export class AddressService {
     private http: HttpClient
   ) {}
 
+  public searchCEP(cep: any){
+    return this.http.get(`https://viacep.com.br/ws/${cep}/json/`);
+  }
+
   getAllAddress(){
     return this.http.get(`${this.apiUrl}`, this.httpOptions)
   }

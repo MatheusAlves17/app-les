@@ -6,14 +6,14 @@
     <li>
       <a routerLink="/carrinho">Carrinho</a>
     </li>
-    <li>
+    <li *ngIf="isLogged">
       <p (click)="goTo('minhas-compras')">Minhas compras</p>
     </li>
-    <li>
-      <div class="avatarDefault" *ngIf="avatarDefault" (click)="goTo('perfil')">{{avatarDefault}}</div>
+    <li *ngIf="isLogged">
+      <div class="avatarDefault" (click)="goTo('perfil')">{{avatarDefault}}</div>
     </li>
-    <li>
-      <a routerLink="/login" *ngIf="!avatarDefault">Entrar</a>
+    <li *ngIf="!isLogged">
+      <a routerLink="/login" >Entrar</a>
     </li>
   </ul>
 </nav>

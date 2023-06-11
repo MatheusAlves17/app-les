@@ -16,7 +16,6 @@ export class AddressComponent {
     private router: Router,
     private route: ActivatedRoute,
     private addressService: AddressService
-
   ){}
 
   ngOnInit():void{

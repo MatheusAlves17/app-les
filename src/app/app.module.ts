@@ -3,6 +3,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatSliderModule } from '@angular/material/slider';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatTableModule } from '@angular/material/table';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -38,6 +41,8 @@ import { ProductFormComponent } from './components/product-form/product-form.com
 import { NewProductComponent } from './pages/new-product/new-product.component';
 import { EditProductComponent } from './pages/edit-product/edit-product.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgxMaskModule } from 'ngx-mask';
+import { SalesComponent } from './pages/sales/sales.component';
 
 @NgModule({
   declarations: [
@@ -67,7 +72,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ProductsComponent,
     ProductFormComponent,
     NewProductComponent,
-    EditProductComponent
+    EditProductComponent,
+    SalesComponent,
   ],
   imports: [
     BrowserModule,
@@ -78,6 +84,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     FontAwesomeModule,
     MatSliderModule,
     BrowserAnimationsModule,
+    MatSnackBarModule,
+    NgxMaskModule.forRoot(),
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]

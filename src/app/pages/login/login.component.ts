@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Route, Router } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
 
@@ -15,43 +16,46 @@ export class LoginComponent {
 
   constructor(
     private router: Router,
-    private userService: UserService
-  ){}
+    private userService: UserService,
+    private _snackBar: MatSnackBar
 
-  ngOnInit():void{
-    this.loginForm =  new FormGroup({
+  ) { }
+
+  ngOnInit(): void {
+    this.loginForm = new FormGroup({
       email: new FormControl('', [Validators.required]),
       password: new FormControl('', [Validators.required]),
     })
   }
 
-  get email () {
+  get email() {
     return this.loginForm.get('email')!;
   }
 
-  get password () {
+  get password() {
     return this.loginForm.get('password')!;
   }
 
 
-  submit(){
-    const {value, valid} = this.loginForm;
+  submit() {
+    const { value, valid } = this.loginForm;
     console.log(value);
 
-    if(valid){
+    if (valid) {
       this.userService.login(value).subscribe((data: any) => {
-        this.message = 'Redirecionando';
-        console.log(`sucesso! ${data}`);
         localStorage.setItem('user', JSON.stringify(data.user))
         localStorage.setItem('token', JSON.stringify(data.access_token))
-        // this.router.navigate(['/home'])
+
         this.router.navigate([`/home`])
-      }, (err: any) =>{
-        console.log(`erro: ${err.error.message}`);
-        this.message = err.error.message;
+      }, (err: any) => {
+        // console.log(`erro: ${err.error.message}`);
+        this.openSnackBar(err.error.message, 'fechar')
       })
     }
   }
 
+  openSnackBar(message: string, action: string) {
+    this._snackBar.open(message, action);
+  }
 
 }

@@ -43,6 +43,7 @@ const routes: Routes = [
   { path: 'produtos/:id', component: ProductsComponent },
   { path: 'novo-produto/:id', component: NewProductComponent },
   { path: 'editar-produto/:id', component: EditProductComponent },
+  { path: '**', redirectTo: 'home'}
 ];
 
 @NgModule({

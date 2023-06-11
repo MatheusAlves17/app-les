@@ -11,24 +11,31 @@ export class CartService {
   apiUrl = 'http://46.101.179.199/cart';
   // apiUrl = 'http://localhost:3333/cart';
 
-
-  tokenJWT: any = localStorage.getItem('token')
-  access_token: any = this.tokenJWT ? JSON.parse(this.tokenJWT) : null;
-
-
-  httpOptions = {
-    headers: new HttpHeaders({
-      'Content-Type': 'application/json',
-      'Authorization': `Bearer ${this.access_token}`,
-    })
-  };
+  tokenJWT!: string | null;
+  access_token!: string | null;
+  httpOptions!: Object;
 
   constructor(
     private http: HttpClient
 
-  ) { }
+  ) {
+    this.getToken();
+  }
+
+  getToken(): void {
+    this.tokenJWT = localStorage.getItem('token')
+    this.access_token = this.tokenJWT ? JSON.parse(this.tokenJWT) : null;
+
+    this.httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type':'application/json',
+        'Authorization': `Bearer ${this.access_token}`,
+      })
+    };
+  }
 
   getAllCart() {
+    if(!this.access_token) this.getToken();
     return this.http.get(`${this.apiUrl}`, this.httpOptions)
   }
 
@@ -40,7 +47,7 @@ export class CartService {
     return this.http.post(this.apiUrl, cart, this.httpOptions)
   }
   payCart( id: any, cart: any) {
-    console.dir(cart, {depth: null})
+    console.dir(cart)
     return this.http.post(`${this.apiUrl}/pay/${id}`, cart, this.httpOptions)
   }
 

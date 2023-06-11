@@ -10,7 +10,7 @@ import { CartService } from 'src/app/services/cart.service';
 export class MyPurchaseComponent {
 
   id: string | null = '';
-  orderList: [] = [];
+  orderList!: any;
   cartItem!: any;
   products: [] = [];
   images: any = [];
@@ -25,13 +25,13 @@ export class MyPurchaseComponent {
     this.id = this.route.snapshot.paramMap.get('id')
     this.cartService.getAllCart().subscribe((data: any) => {
       let paid = data.results;
-      this.orderList = paid.filter((item: any) => item.paid_status === 'PAID')
-      this.cartItem = this.orderList.map((item: any) => item.cart_items);
+      this.orderList = paid.filter((item: any) => item.status === 'APROVADA')
+      // this.cartItem = this.orderList.map((item: any) => item.cart_items);
       // let products = this.cartItem.map(({product}: any) => ({product}))
       // let items = this.cartItem.map((item: any) => item)
       // let products = this.cartItem.map(({product}: any) => ({product}))
       // this.images = products.map(({product}: any) => product.image)
-      console.dir(this.cartItem)
+      console.dir(this.orderList)
       // console.dir(this.images)
     })
   }

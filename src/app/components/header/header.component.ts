@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 export class HeaderComponent {
 
   avatarDefault!: any;
+  isLogged = false;
   id: string = '';
 
   constructor(
@@ -20,6 +21,7 @@ export class HeaderComponent {
     let data = user ? JSON.parse(user) : '';
     this.avatarDefault = data.name[0];
     this.id = data.id;
+    if(this.id) this.isLogged = true;
   }
 
   goTo(path: string){

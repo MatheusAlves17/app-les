@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CartService } from 'src/app/services/cart.service';
 
@@ -18,34 +19,48 @@ export class PurchaseResumeComponent {
   constructor(
     private cartService: CartService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private _snackBar: MatSnackBar
+
   ) { }
 
   ngOnInit(): void {
     this.id = this.route.snapshot.paramMap.get('id');
     this.cartService.getCart(this.id).subscribe((data: any) => {
       this.cart_items = data.cart_items;
-      let products = this.cart_items.map(({product}: any) => ({product}))
-      this.images = products.map(({product}: any) => product.image)
+      let products = this.cart_items.map(({ product }: any) => ({ product }))
+      this.images = products.map(({ product }: any) => product.image)
 
 
     })
   }
 
   buy() {
-    const cartStorage = localStorage.getItem("CARRINHO");
+    const cartStorage = localStorage.getItem("CART");
     const cart = cartStorage ? JSON.parse(cartStorage) : '';
+    const cartAdressStorage = localStorage.getItem("CART_ADDRESS");
+    const address = cartAdressStorage ? JSON.parse(cartAdressStorage) : '';
+    // console.dir(cart)
 
-    this.cartService.payCart(this.id, cart).subscribe((data: any) => {
+    let items = {
+      address_id: address,
+      payment_cards: cart
+    }
+
+    this.cartService.payCart(this.id, items).subscribe((data: any) => {
       console.dir(data);
       localStorage.removeItem('CARRINHO');
       localStorage.removeItem('cart');
       localStorage.removeItem('cartProducts');
-      this.message = 'Compra finalizada! Acompanhe a entrega'
+      this.openSnackBar('Compra finalizada!', 'fechar');
     }, (err: any) => {
-      this.message = err.error.message;
+      this.openSnackBar(err.error.message, 'fechar');
       // this.router.navigate([`/home`])
     })
+  }
+
+  openSnackBar(message: string, action: string) {
+    this._snackBar.open(message, action);
   }
 
 }

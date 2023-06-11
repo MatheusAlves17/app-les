@@ -1,11 +1,11 @@
-main{
+main {
   width: 100vw;
   height: auto;
-
-  /* background: #F8F8F8; */
+  display: flex;
+  justify-content: space-around;
 }
 
-section{
+section {
   display: flex;
   flex-direction: column;
 
@@ -15,7 +15,7 @@ section{
   margin-top: 2rem;
 }
 
-.row{
+.row {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -24,4 +24,13 @@ section{
 
 mat-slider {
   width: 300px;
+}
+
+.total{
+  background: #1ED760;
+    position: absolute;
+    color: #FFF;
+    font-weight: 500;
+    padding: 16px;
+    border-radius: 10px;
 }

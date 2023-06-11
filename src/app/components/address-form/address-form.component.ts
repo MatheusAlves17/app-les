@@ -42,17 +42,26 @@ export class AddressFormComponent {
       })
     }),(err: any) => {
       console.log(`erro: ${err.error.message}`);
-
     })
-
-
-
   }
 
   submit() {
     const { value, valid } = this.addressForm;
     this.onSubmit.emit(value)
     console.log(`data: ${value}`);
+  }
+
+  getCEP(){
+    const cep = this.zip_code.value;
+    console.log(cep, "CEEEEP")
+    this.addressService.searchCEP(cep).subscribe((data) => this.setValuesForm(data))
+  }
+
+  setValuesForm(data: any){
+    this.street.setValue(data.logradouro);
+    this.district.setValue(data.bairro);
+    this.city.setValue(data.localidade);
+    this.state.setValue(data.uf);
   }
 
   get street() {
@@ -75,4 +84,3 @@ export class AddressFormComponent {
   }
 
 }
-
